@@ -1,0 +1,74 @@
+.Shadow:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.ButtonMenuHover:hover{
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-overline-style: none;
+}
+.ButtonMenuStyle{
+    text-decoration:unset;
+    text-align: center;
+    color: #fff0dc;
+}
+.MenuStyle{
+    background: rgba(255,255,255,0);
+    position: fixed;
+    z-index: 500;
+}
+
+
+.MenuBorder{
+    width: 100%;
+    overflow: hidden;
+}
+
+.SearchStyle{
+    border: none;
+    background: rgba(255,255,255,0);
+    color: #ffebd2;
+    margin-left: 5px;
+    height: 16px;
+}
+
+
+.ButtonMenuBorder{
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}
+
+.MenuItemBorder{
+    width: 10%;
+    overflow: hidden;
+}
+
+.MenuItemStyle{
+    background: rgba(36, 36, 36, 0.13);
+    position: fixed;
+    /*background:red;*/
+    z-index: 500;
+}
+.ButtonMenuItemStyle{
+    text-decoration:unset;
+    text-align: center;
+    color: #fff0dc;
+}
+
+
+.ButtonMenuItemHoverStyle:hover {
+    background: rgba(0, 0, 0, 0.51);
+    text-align: center;
+    text-overline-style: none;
+}
+.ButtonMenuItemBorder{
+    padding: 8px 16px;
+    float: top;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}

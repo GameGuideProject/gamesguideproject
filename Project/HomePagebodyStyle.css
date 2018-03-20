@@ -1,0 +1,13 @@
+
+/*background style start */
+body{
+    background: linear-gradient(90deg, #0c1923, #0f1928, #0c1932, #0c1937);
+    animation: example 5s linear 2s infinite alternate;
+    background-size: 400% 400%;
+}
+@keyframes example {
+    0%{background-position: 0% 25%}
+    50%{background-position: 50% 75%}
+    100%{background-position: 100% 0%}
+}
+/*background style End */

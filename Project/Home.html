@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="HomePagebodyStyle.css">
+    <link rel="stylesheet" href="HomeMenuStyle.css">
+    <link rel="stylesheet" href="HomePageGameViewer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script type="text/javascript" src="Script/HomePageImageSelectarController.js"></script>
+
+    <title>Name</title>
+
+
+    <style type="text/css">
+
+        #Profile:hover  #dd{
+            display: block;
+        }
+
+
+
+
+    </style>
+    <script type="text/javascript">
+        function displayProfileMenu() {
+            document.getElementById('ProfileMenu').style.display="block";
+        }
+
+        function  NondisplayProfileMenu(){
+            document.getElementById('ProfileMenu').style.display="none";
+        }
+
+
+    </script>
+
+</head>
+<body class="HomePagebodyStyle"  onload="Build();">
+
+
+<!--Menu Code Start ..................................................................................-->
+<div class="MenuBorder Shadow MenuStyle" id="MenuPagePar" >
+
+    <a class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover" href="#List"  ><i class="fa fa-bars"></i></a>
+    <a href="Home.html" id="jkk" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover  ">Home</a>
+    <a href="#Game" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover "><i class="fa fa-th"></i> Games</a>
+
+    <div class="ButtonMenuBorder  " style="margin-left:43%;">
+        <img src="Image/search.png">
+        <input type="text" placeholder="search" class="SearchStyle" >
+    </div>
+
+
+
+    <a href="#MessageBox" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover w3-hide-small" style="margin-left: 70px"><img id="MessageBox" src="Image/Box.png"></a>
+
+
+
+    <!--Profile Menu.............................................................................-->
+    <a id="Profile" href="#Profile" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle  ButtonMenuHover " onmouseenter="displayProfileMenu()" onmouseleave="NondisplayProfileMenu()" >
+        <img src="Image/Profile.png">Zaid Habiba
+        <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle" onmouseenter="displayProfileMenu()"
+              onmouseleave="NondisplayProfileMenu()" style="margin-top: 39px; margin-left: 88.2%; display: none;">
+            <a href="Home.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
+            <a href="#List" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
+        </div>
+    </a>
+
+
+</div>
+<!--Menu Code End ..................................................................................-->
+
+
+<!-- Game Viewer Home page Start .........................................-->
+<div id="HomeImageViewer" class="OutSideStyle">
+
+    <div>
+        <button class="ButtomGameViewerStyle  ButtomGameViewerHoverStyle" >Show Game</button>
+    </div>
+    <div class="TextStyle">
+       NEW
+    </div>
+    <div class="TextNameStyle">
+        KILLZONE:</br>
+        SHADOW FALL
+    </div>
+    <div class="TextDiscrabtionStyle">
+        One of the best game anyones ever</br>
+        played hands down!
+    </div>
+
+
+    <div>
+        <img src="Image/ArrowMove.png"  class="ArrowMoveLeft" onclick="ChangImageView()">
+        <img src="Image/ArrowMove.png" class="ArrowMoveRight" onclick="ChangImageView()">
+    </div>
+
+
+    <div id="GameRankText"  class="GameRankTextStyle">
+        <B>GAME RANKING</B>
+    </div>
+    <div id="ValueGameRank"  class="GameRankStyle">
+        Good
+    </div>
+    <div id="Reviews" class="ReviewsTextStyle">
+        2,871 reviews
+    </div>
+
+
+    <div>
+        <img id="ImageView" src="Image/killzone.jpg" class="ImageStyle">
+    </div>
+
+
+    <div class="ContainerImageSelectar">
+        <img id="FirstPointSelecterImage" src="Image/ImageIndexSelect.png" onclick="setFirstImage(document.getElementById('ImageView'),this,document.getElementById('SecondPointSelecterImage'),document.getElementById('ThirdPointSelecterImage'));">
+        <img id="SecondPointSelecterImage" src="Image/ImageIndexNonSelect.png" onclick="setSecondImage(document.getElementById('ImageView'),this,document.getElementById('FirstPointSelecterImage'),document.getElementById('ThirdPointSelecterImage'));">
+        <img id="ThirdPointSelecterImage" src="Image/ImageIndexNonSelect.png" onclick="setThirdImage(document.getElementById('ImageView'),this,document.getElementById('FirstPointSelecterImage'),document.getElementById('SecondPointSelecterImage'));">
+    </div>
+
+</div>
+<!-- Game Viewer Home page End .........................................-->
+
+
+
+<p style="z-index: 8">
+    k
+    </br>
+    </br>
+    </br></br></br></br></br></br></br></br></br>
+    </br></br></br></br></br></br></br></br></br>
+    sfsafsa
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+
+</p>
+
+
+
+
+
+</body>
+</html>
