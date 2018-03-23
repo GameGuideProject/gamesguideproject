@@ -1,0 +1,172 @@
+.ImageStyle{
+    width: 100%;
+    z-index: 1;
+    filter: brightness(78%);
+}
+
+.ButtomGameViewerHoverStyle:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.33);
+}
+
+
+.OutSideStyle{
+    width: 80%;
+    background-color: rgba(0, 1, 45, 0.15);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.36), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    position: relative;
+    margin-left: 20%;
+    margin-top: 100px;
+    width: 60%;
+    display: inline-block;
+}
+
+.TextStyle{
+    margin-left: 8%;
+    margin-top: 17%;
+    z-index: 5;
+    position: absolute;
+    background: linear-gradient(120deg, #c6a818, #dcbd19);
+    color: #000000;
+    padding: 6px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 8pt;
+    transition-duration: 0.4s;
+    transform:skew(-7deg);
+    align-items: flex-end;
+    font-style: normal;
+    font-family:"Consolas";
+}
+.TextNameStyle{
+    margin-left: 3%;
+    margin-top: 20%;
+    z-index: 5;
+    position: absolute;
+    color: #ffffff;
+    padding: 1% 5%;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 17pt;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+    font-family:"Franklin Gothic Medium";
+}
+.TextDiscrabtionStyle{
+    margin-left: 3%;
+    margin-top: 29%;
+    z-index: 5;
+    position: absolute;
+    color: #f9f9f9;
+    padding: 1% 5%;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 10pt;
+    font-style: italic;
+    font-family:"Consolas";
+    transition-duration: 0.4s;
+    align-items: flex-end;
+}
+
+.GameRankTextStyle{
+    margin-left: 83%;
+    margin-top: 45%;
+    z-index: 5;
+    position: absolute;
+    color: #fad78f;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 8pt;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+
+}
+
+.GameRankStyle{
+    margin-left: 83%;
+    margin-top: 47%;
+    z-index: 5;
+    position: absolute;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 12pt;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+    font-family:"Franklin Gothic Medium";
+}
+
+.ReviewsTextStyle{
+    margin-left: 78.1%;
+    margin-top: 49%;
+    z-index: 5;
+    position: absolute;
+    color: #a4a4a4;
+    padding: 6px 40px;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 8pt;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+    font-family:"Consolas";
+}
+
+
+
+
+.ContainerImageSelectar{
+    margin-left: 48.5%;
+}
+
+
+.ButtomGameViewerStyle{
+    margin-left: 7%;
+    margin-top: 37%;
+    z-index: 5;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 6px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    transform:skew(-7deg);
+    align-items: flex-end;
+    font-family:"Consolas";
+}
+
+
+.ArrowMoveLeft{
+    margin-left: -2%;
+    margin-top:28%;
+    z-index: 5;
+    position: absolute;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 12pt;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+    transform: rotate(180deg);
+
+}
+
+
+.ArrowMoveRight{
+
+    margin-left: 98%;
+    margin-top: 28%;
+    z-index: 5;
+    position: absolute;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 12pt;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    align-items: flex-end;
+}

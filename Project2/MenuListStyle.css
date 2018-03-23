@@ -1,0 +1,82 @@
+
+.ButtonMenuListBorder{
+    padding: 8px 16px;
+    float: top;
+    width: 100%;
+    display: block;
+    outline: 0;
+    border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+}
+
+
+.ButtonMenuListHover:hover{
+    background: rgba(0, 0, 0, 0.51);
+    text-align: center;
+    text-overline-style: none;
+    border-bottom: 1px solid rgba(110, 110, 110, 0);
+    border-top: 1px solid rgba(110, 110, 110, 0);
+}
+
+
+.ButtonMenuListStyle{
+
+    text-decoration:unset;
+    text-align: center;
+    color: #fff0dc;
+}
+
+.MenuListItemBorder{
+    border-bottom: 3px solid rgba(55, 55, 55, 0.66);
+    display: none;
+}
+
+
+
+/* TextSide  MenuList style .................................................................*/
+.TextSideMenuListBorder{
+    padding: 8px 16px;
+    float: top;
+    width: 100%;
+    display: block;
+    outline: 0;
+    border-bottom: 2px solid rgba(55, 55, 55, 0.8);
+}
+.TextSideMenuListHover:hover{
+    background: rgba(20, 20, 20, 0.45);
+}
+
+.TextSideMenuListBorder{
+
+    text-decoration:unset;
+    text-align: center;
+    color: #fff0dc;
+}
+
+/*List out side style .................................................................*/
+.MenuListBorder{
+    width: 15%;
+    overflow: hidden;
+}
+
+
+.MenuListStyle{
+    display: none;
+    background: rgba(20, 20, 20, 0.66);
+    position: fixed;
+    z-index: 500;
+}
+
+
+.ShadowMenuList:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*text style .............................................*/
+.TextInfoStyle{
+    text-decoration:underline;
+    font-size: 10pt;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+    color: #fff0dc;
+}
