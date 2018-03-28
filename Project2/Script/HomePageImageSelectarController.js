@@ -1,13 +1,27 @@
 var Image1,Image2,Image3,ImageSelect,ImageIndexNonSelect;
 var Imagestate;
 var Interval;
+
+
 function Build() {
     ReadImage();
     Interval= setInterval(ChangImageView,7000);
     Imagestate=1;
 }
 
+function Loginfunction(){
+    var modal = document.getElementById('loginDiv');
 
+        modal.style.display = "block";
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+
+        }
+    }
+
+}
 
 
 

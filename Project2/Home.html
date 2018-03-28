@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="Script/HomePageImageSelectarController.js"></script>
     <script type="text/javascript" src="Script/HomeMenuListAnimation.js"></script>
 
@@ -104,6 +106,32 @@
 <body class="HomePagebodyStyle"  onload="Build();SetCategoriesMenu();SetPlatformMenu();SetProfileMenu();" >
 
 
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            $('#logo').addClass('animated fadeInDown');
+            $("input:text:visible:first").focus();
+        });
+        $('#username').focus(function() {
+            $('label[for="username"]').addClass('selected');
+        });
+        $('#username').blur(function() {
+            $('label[for="username"]').removeClass('selected');
+        });
+        $('#password').focus(function() {
+            $('label[for="password"]').addClass('selected');
+        });
+        $('#password').blur(function() {
+            $('label[for="password"]').removeClass('selected');
+        });
+    </script>
+
+
+
+</div>
 <!--Menu Code Start ..................................................................................-->
 <div class="MenuBorder Shadow MenuStyle" id="MenuPagePar"  >
 
@@ -147,9 +175,9 @@
 
 
 
-    <div class="ButtonMenuBorder SearchStyleButtonHover " style="margin-left:35%;">
+    <div class="ButtonMenuBorder SearchStyleButtonHover " style="margin-left:25%;">
         <img src="Image/search.png" class="SearchStyleButton ">
-        <input type="text" placeholder="search" class="SearchStyle" >
+        <input type="text" placeholder= "search" class="SearchStyle"  >
     </div>
 
 
@@ -167,7 +195,7 @@
         <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle"  onmouseenter="displayProfileMenu(document.getElementById('ProfileMenuButton'))"
               onmouseleave="NondisplayProfileMenu(document.getElementById('ProfileMenuButton'))" >
             <a href="Home.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
-            <a href="#List" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
+            <a  class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle" onclick="Loginfunction()" >Logout</a>
         </div>
     <!--Profile Menu End.............................................................................-->
 
@@ -285,20 +313,40 @@
 
 
 
-<p style="z-index: 8">
-    k
-    </br>
-    </br>
-    </br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br>
-    sfsafsa
-    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
+    <div id="loginDiv" class="modal login" style="display: none">
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
-</p>
+        <link rel="stylesheet" href="../log in/css/animate.css">
 
+        <link rel="stylesheet" href="../log in/css/style.css">
 
+        <div class="container ">
+            <div class="top">
+                <h1 id="title" class="hidden"><span id="logo">Game <span>guide</span></span></h1>
+            </div>
+            <div  class="login-box animated fadeInUp" >
 
+                <div class="box-header">
+
+                    <h2 class="login">Log In </h2>
+
+                </div>
+                <label for="username">Username</label>
+                <br/>
+                <input type="text" id="username">
+                <br/>
+                <label for="password">Password</label>
+                <br/>
+                <input type="password" id="password">
+                <br/>
+                <button type="submit">Sign In</button>
+                <br/>
+                <a href="#" class="login"><p class="small">Forgot your password?</p></a>
+                <br/>
+                <a href="#" class="login"><p class="small ">Register now.</p></a>
+            </div>
+        </div>
 
 
 </body>
