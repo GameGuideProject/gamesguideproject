@@ -1,0 +1,83 @@
+.SquareGameViewNameStyle{
+    font-size: 20pt;
+    float: left;
+    font-family:"Calibri Light";
+    box-sizing: border-box;
+    color: #2c2c2c;margin-left: 7%;
+    margin-top: 1.5%;
+    text-shadow: 2px 2px 8px rgba(53,53,53,0.96);
+
+}
+
+.hh{
+
+    background: rgba(71, 10, 11, 0.87);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+    z-index: 1;
+    border-radius:5px ;
+    height: 1200px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    display: block;background:#555555
+}
+
+.SquareGameViewBodyStyle{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+    margin-top: 10%;
+    display: inline-block;
+    z-index: 1;
+    border-radius:5px ;
+    background: rgba(255,255,255,0.86);
+    width: 40%;
+    height: 300px;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    transition: 1s;
+}
+.SquareGameViewBodyStyle:hover  img{
+    margin-top: -15%;
+}
+
+.SquareGameViewBodyStyle:hover  div img{
+    margin-top: 9.5%;
+}
+.SquareGameViewBodyStyle:hover  div  div{
+    color: #2c2c2c;
+    display: block;
+}
+
+.SquareGameViewBodyStyle:hover  div  div img{
+
+    display: block;
+}
+
+.SquareGameViewDescription{
+    display: none;
+    font-size: 12pt;
+    float: left;
+    font-family:'Calibri Light';
+    margin-left: 7%;
+    margin-top: 1.5%;
+    color: rgba(44, 44, 44, 0);
+    text-shadow: 1px 1px 4px rgba(53, 53, 53, 0.33);
+    transition:20s;
+
+}
+.SquareGameViewImageStyle{
+    transition: 1s;
+}
+.SquareGameViewIconStyle{
+    margin-top:15%;
+    margin-left: 27%;
+    position: absolute;
+    transition: 1s;
+}
+
+.SquareGameViewIconsTypeStyle{
+    margin-right: 2%;
+    margin-left: 10%;
+    margin-top: 5%;
+    position: absolute;
+}

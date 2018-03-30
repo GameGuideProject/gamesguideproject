@@ -15,11 +15,11 @@ function Build() {
 
 
 function ReadImage() {
-    Image1="Image/killzone.jpg";
-    Image2="Image/2.jpg";
-    Image3="Image/3.png";
-    ImageSelect="Image/ImageIndexSelect.png";
-    ImageIndexNonSelect="Image/ImageIndexNonSelect.png";
+    Image1="Image/images/killzone.jpg";
+    Image2="Image/images/2.jpg";
+    Image3="Image/images/3.png";
+    ImageSelect="Image/Icon/ImageIndexSelect.png";
+    ImageIndexNonSelect="Image/Icon/ImageIndexNonSelect.png";
 }
 
 function setFirstImage(ImageView,ImagePressed,secondImage,ThirdImage){

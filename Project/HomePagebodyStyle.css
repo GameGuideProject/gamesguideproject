@@ -1,9 +1,10 @@
 
 /*background style start */
 body{
-    background: linear-gradient(90deg, #0c1923, #0f1928, #0c1932, #0c1937);
-    animation: example 5s linear 2s infinite alternate;
-    background-size: 400% 400%;
+    background: #282828;
+    /*background: linear-gradient(90deg, #0d222d, #112132, #101f3c, #0d1a41);*/
+    /*animation: example 5s linear 2s infinite alternate;*/
+    /*background-size: 400% 400%;*/
 }
 @keyframes example {
     0%{background-position: 0% 25%}
