@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +89,7 @@
         }
 
         function get(s) {
-           return document.getElementById(s);
+            return document.getElementById(s);
         }
     </script>
 
@@ -148,15 +149,11 @@
 
     <!--Profile Menu Start.............................................................................-->
 
-    <a id="ProfileMenuButton" href="#ProfileMenuButton" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle  ButtonMenuHover "
+    <a id="ProfileMenuButton" href="../login/index.html" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle ButtonMenuHover "
        onmouseenter="displayProfileMenu(this)" onmouseleave="NondisplayProfileMenu(this)" >
-        <img src="Image/Icon/Profile.png"  style="transform: translate(-5px,-2px);">ZaidHabiba</a>
+        <img   style="transform: translate(-5px,-2px);">Log in</a>
 
-        <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle"  onmouseenter="displayProfileMenu(document.getElementById('ProfileMenuButton'))"
-              onmouseleave="NondisplayProfileMenu(document.getElementById('ProfileMenuButton'))" >
-            <a href="Home.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
-            <a href="#" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
-        </div>
+
     <!--Profile Menu End.............................................................................-->
 
 
@@ -172,28 +169,28 @@
 
     <a href="#" class=" TextSideMenuListBorder  TextSideMenuListStyle" style="cursor:unset;">
         Categories<img id="ArrowImageCategories" src="Image/Icon/downarrow.png" style="transform: translate(200%,-2px);cursor:pointer;"
-        onclick="ShowItemAnimation(document.getElementById('MenuListCategoriesItem'),this
+                       onclick="ShowItemAnimation(document.getElementById('MenuListCategoriesItem'),this
         ,document.getElementById('MenuListPlatformItem'),document.getElementById('ArrowImagePlatform'))"></a>
 
     <div  id="MenuListCategoriesItem"  class="MenuListItemBorder">
-    <a href="Home.html"  class="ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image91'))" onmouseleave="resetIcon(get('image91'))"><img id="image91"  src="Image/Icon/Action.png" style="transform: translate(-3px,-2px);">Action</a>
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image93'))" onmouseleave="resetIcon(get('image93'))"><img id="image93"  src="Image/Icon/Adventure.png" style="transform: translate(-3px,-2px);">Adventure</a>
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image95'))" onmouseleave="resetIcon(get('image95'))"><img id="image95"  src="Image/Icon/Arcade.png" style="transform: translate(-3px,-2px);">Arcade</a>
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image96'))" onmouseleave="resetIcon(get('image96'))"><img id="image96"  src="Image/Icon/sport.png" style="transform: translate(-3px,-2px);">Sports</a>
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image98'))" onmouseleave="resetIcon(get('image98'))"><img id="image98"  src="Image/Icon/board.png" style="transform: translate(-3px,-2px);">Board</a>
+        <a href="Home.html"  class="ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image91'))" onmouseleave="resetIcon(get('image91'))"><img id="image91"  src="Image/Icon/Action.png" style="transform: translate(-3px,-2px);">Action</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image93'))" onmouseleave="resetIcon(get('image93'))"><img id="image93"  src="Image/Icon/Adventure.png" style="transform: translate(-3px,-2px);">Adventure</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image95'))" onmouseleave="resetIcon(get('image95'))"><img id="image95"  src="Image/Icon/Arcade.png" style="transform: translate(-3px,-2px);">Arcade</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image96'))" onmouseleave="resetIcon(get('image96'))"><img id="image96"  src="Image/Icon/sport.png" style="transform: translate(-3px,-2px);">Sports</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image98'))" onmouseleave="resetIcon(get('image98'))"><img id="image98"  src="Image/Icon/board.png" style="transform: translate(-3px,-2px);">Board</a>
     </div>
 
 
     <a href="#" class=" TextSideMenuListBorder  TextSideMenuListStyle"style="cursor:unset;">
         Platform<img id="ArrowImagePlatform" src="Image/Icon/downarrow.png" style="transform: translate(250%,-2px);cursor:pointer;"
-        onclick="ShowItemAnimation(document.getElementById('MenuListPlatformItem'),this
+                     onclick="ShowItemAnimation(document.getElementById('MenuListPlatformItem'),this
         ,document.getElementById('MenuListCategoriesItem'),document.getElementById('ArrowImageCategories'))"></a>
 
     <div  id="MenuListPlatformItem" class="MenuListItemBorder" >
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image100'))" onmouseleave="resetIcon(get('image100'))"><img id="image100"  src="Image/Icon/xbox.png" style="transform: translate(-40%,-10%);">XBox</a>
-    <a href="#" class="ButtonMenuListBorder  ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image101'))" onmouseleave="resetIcon(get('image101'))"><img id="image101"  src="Image/Icon/pc.png"style="transform: translate(-40%,-10%);">PC</a>
-    <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image102'))" onmouseleave="resetIcon(get('image102'))"><img id="image102"  src="Image/Icon/playstation.png"style="transform: translate(-40%,-10%);">PlayStation</a>
-    <a href="#" class="ButtonMenuListBorder  ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image103'))" onmouseleave="resetIcon(get('image103'))"><img id="image103"  src="Image/Icon/mobil.png"style="transform: translate(-40%,-10%);">Mobil</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image100'))" onmouseleave="resetIcon(get('image100'))"><img id="image100"  src="Image/Icon/xbox.png" style="transform: translate(-40%,-10%);">XBox</a>
+        <a href="#" class="ButtonMenuListBorder  ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image101'))" onmouseleave="resetIcon(get('image101'))"><img id="image101"  src="Image/Icon/pc.png"style="transform: translate(-40%,-10%);">PC</a>
+        <a href="#" class=" ButtonMenuListBorder ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image102'))" onmouseleave="resetIcon(get('image102'))"><img id="image102"  src="Image/Icon/playstation.png"style="transform: translate(-40%,-10%);">PlayStation</a>
+        <a href="#" class="ButtonMenuListBorder  ButtonMenuListHover ButtonMenuListStyle"onmouseenter="setIcon(get('image103'))" onmouseleave="resetIcon(get('image103'))"><img id="image103"  src="Image/Icon/mobil.png"style="transform: translate(-40%,-10%);">Mobil</a>
     </div>
 
     <a href="" id="AboutButtonMenuList" class="TextSideMenuListBorder TextSideMenuListHover TextSideMenuListStyle">About</a>
@@ -206,9 +203,9 @@
         <div class="TextInfoStyle" style="margin-top: -7%">Developer</div>
         </br>
         <div style="font-size: 8pt;text-align: left;color: #232220; margin-top: -10%;">
-        Zaid Habiba
-        </br>
-        Ayman Abu-eideh
+            Zaid Habiba
+            </br>
+            Ayman Abu-eideh
         </div>
 
     </a>
@@ -227,7 +224,7 @@
         <button class="ButtomGameViewerStyle  ButtomGameViewerHoverStyle" >Show Game</button>
     </div>
     <div class="IconSlidShow">
-       NEW
+        NEW
     </div>
     <div class="TextNameStyle">
         KILLZONE:
@@ -284,7 +281,7 @@
     </select>
 
     <div class="bodySearchLabelTextStyle" id="SearchLabelBody">
-    <label  id="SearchLabelText" class="SearchLabelTextStyle">cs go</label>
+        <label  id="SearchLabelText" class="SearchLabelTextStyle">cs go</label>
         <img src="Image/Icon/close.png" class="IconCloseSearchStyle" onclick="closeSearch(get('SearchLabelBody'),get('Search'));">
     </div>
     <input id="Search" maxlength="50" type="text" placeholder="search" class="InputTextFieldSearchStyle"
@@ -303,20 +300,6 @@
 </br>
 </br>
 </br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-
-
-
-
 
 
 

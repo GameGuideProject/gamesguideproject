@@ -21,7 +21,7 @@
 			<h1 id="title" class="hidden"><span id="logo">Game <span>guide</span></span></h1>
 		</div>
 		<div  class="login-box animated fadeInUp" >
-			
+		<form method="post" action="login.php">
 			<div class="box-header">
 				
 				<h2>Log In </h2>
@@ -29,24 +29,25 @@
 			</div>
 			<label for="Email">Email</label>
 			<br/>
-			<input type="email" id="Email">
+			<input type="email" id="Email" name ="email">
 			<br/>
 			<label for="password">Password</label>
 			<br/>
-			<input type="password" id="password">
+			<input type="password" id="password" name="pass">
 			<br/>
-			<button type="submit">Sign In</button>
+			<button type="submit" name ="submit">Sign In</button>
 			<br/>
 			<a href="Forgot%20Password.html"><p class="small">Forgot your password?</p></a>
 			<br/>
 			<a href="Register.html"><p class="small">Register now.</p></a>
 			<p></p>
+			</form>
 		</div>
 	</div>
 </body>
 
 <script>
-	$(document).ready(function () {
+	/*$(document).ready(function () {
     	$('#logo').addClass('animated fadeInDown');
     	$("input:text:visible:first").focus();
 	});
@@ -61,7 +62,7 @@
 	});
 	$('#password').blur(function() {
 		$('label[for="password"]').removeClass('selected');
-	});
+	});*/
 </script>
 
 </html>

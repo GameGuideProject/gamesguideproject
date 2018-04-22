@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 <div class="container">
     <div class="top">
         <h1 id="title" class="hidden"><span id="logo">Game <span>guide</span></span></h1>
@@ -25,28 +26,31 @@
         <div class="box-header">
             <h2>Log In </h2>
         </div>
-        <label for="username">Username</label>
+
+        <form method="post" action="Register.php">
+        <label for="username" >Username</label>
         <br/>
-        <input type="text" id="username">
+        <input type="text" id="username" name="username">
         <br/>
         <label for="Email">Email</label>
         <br/>
-        <input type="text" id="Email">
+        <input type="text" id="Email" name="email">
         <br/>
         <label for="password">Password</label>
         <br/>
-        <input type="password" id="password">
+        <input type="password" id="password" name="password" >
         <br/>
         <label for="Repeat password">Repeat Password</label>
         <br/>
-        <input type="password" id="Repeat password">
+        <input type="password" id="Repeat password" name="Repeat_Password">
         <br/>
-        <button type="submit">Sign In</button>
+        <button type="submit" name="sign in">Sign In</button>
         <br/>
         <a href="Forgot%20Password.html"><p class="small">Forgot your password?</p></a>
         <br/>
         <a href="index.html"><p class="small">Log In.</p></a>
         <p></p>
+        </form>
     </div>
 </div>
 </body>
