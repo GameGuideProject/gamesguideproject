@@ -12,6 +12,7 @@ if (!(empty($name)||empty($Email)||empty($password)||empty($password1))){
     if (filter_var($Email, FILTER_VALIDATE_EMAIL)) {
 
         if ($password == $password1) {
+            #&&preg_match('~^\.{6,}~', $_POST['password'])
 
 
             $name = mysqli_real_escape_string($DataBase, $_POST['username']);
@@ -26,15 +27,30 @@ if (!(empty($name)||empty($Email)||empty($password)||empty($password1))){
             if (mysqli_query($DataBase, $query)) {
                 $_SESSION['username'] = $name;
                 $_SESSION['check']= 1;
-                header("Location: ../Project/home.php");
+                header("Location: ../Project/Home.html");
                 exit;
             }
-            # else echo 'not here';
+             else {
+                 $_SESSION['check']= 0;
+                 header( "Register.html");
+                 exit;
+                #echo 'not here';
+             }
 
         }
-        #  else echo"not equal";
+          else {
+              $_SESSION['check']= 0;
+              header( "Register.html");
+              exit;
+            #echo"not equal";
+          }
     }
-#else echo 'not email';
+else {
+    $_SESSION['check']= 0;
+    header( "Register.html");
+    exit;
+        #echo 'not email';
+}
 }
 $_SESSION['check']= 0;
 header( "Register.html");

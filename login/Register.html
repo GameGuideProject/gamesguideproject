@@ -30,7 +30,7 @@
         <form method="post" action="Register.php">
         <label for="username" >Username</label>
         <br/>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" pattern=".{6,}">
         <br/>
         <label for="Email">Email</label>
         <br/>
@@ -38,11 +38,11 @@
         <br/>
         <label for="password">Password</label>
         <br/>
-        <input type="password" id="password" name="password" >
+        <input type="password" id="password" name="password" pattern=".{6,}">
         <br/>
         <label for="Repeat password">Repeat Password</label>
         <br/>
-        <input type="password" id="Repeat password" name="Repeat_Password">
+        <input type="password" id="Repeat password" name="Repeat_Password" pattern=".{6,}">
         <br/>
         <button type="submit" name="sign in">Sign In</button>
         <br/>

@@ -19,15 +19,14 @@ if(isset($_POST['submit'])) {
             $username = $row['Name'];
 
             $_SESSION['username'] = $username;
-            $_SESSION['check']=1;
-
-            header("Location: ../Project/home.php");
+            $_SESSION['check'] = 1;
+            header("Location: ../Project/Home.html");
             exit;
         }
 
 
-
-    } else {
+    }
+    else {
        # header('Location: index.html');
     }
 }
