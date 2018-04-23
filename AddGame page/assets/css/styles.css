@@ -1,0 +1,140 @@
+#ThirdImage:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#BackGroundImage:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#FirstImage:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#ScandImage:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#GameName {
+  width:100%;
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  font-size:16px;
+  background-color:white;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.03);
+  text-shadow:2px 2px 8px rgba(41,41,41,0.6);
+}
+
+#VideoURL {
+  width:100%;
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  font-size:16px;
+  background-color:white;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.03);
+  text-shadow:1px 1px 4px rgba(41,41,41,0.6);
+}
+
+#GameLink {
+  width:100%;
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  font-size:16px;
+  background-color:white;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.03);
+  text-shadow:1px 1px 4px rgba(41,41,41,0.2);
+}
+
+#ThirdImagerow:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#ScandImagerow:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#FirstImagerow:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#BackGroundImagerow:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#IconImagerow:hover {
+  background:rgba(197,197,197,0.28);
+}
+
+#GameName:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#VideoURL:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#GameLink:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#date:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#AgeRequired {
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  font-size:16px;
+  background-color:white;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.03);
+}
+
+#AgeRequired:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#GameShortDescription {
+  width:100%;
+  height:150px;
+  padding:12px 20px;
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  background-color:#f8f8f8;
+  font-size:16px;
+  resize:none;
+  text-shadow:2px 2px 8px rgba(41,41,41,0.6);
+}
+
+#GameShortDescription:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+.form-check {
+  margin-left:15px;
+}
+
+#ReleasedDate:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#GameDescription:hover {
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.52), 0 3px 10px 0 rgba(0,0,0,0.35);
+}
+
+#GameDescription {
+  width:100%;
+  height:150px;
+  padding:12px 20px;
+  box-sizing:border-box;
+  border:2px solid #ccc;
+  border-radius:4px;
+  background-color:#f8f8f8;
+  font-size:16px;
+  resize:none;
+  text-shadow:2px 2px 8px rgba(41,41,41,0.6);
+}
+
