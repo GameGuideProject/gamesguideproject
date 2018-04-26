@@ -1,8 +1,17 @@
 <?php
 session_start();
 
-$name=$_SESSION['username'];
+if (isset($_SESSION['username'])) {
+    $name = $_SESSION['username'];
 
+}
+else $name='Log in';
+
+if (isset($_SESSION['check'])){
+    $check=$_SESSION['check'];
+
+}
+else $check=0
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,12 +164,13 @@ $name=$_SESSION['username'];
     <!--Profile Menu Start.............................................................................-->
     <?php
 
-  if ($_SESSION['check']==1){
-    echo '<a id="ProfileMenuButton" href="#ProfileMenuButton" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle  ButtonMenuHover "
+  if ($check==1){
+    echo '<a id="ProfileMenuButton"  class="ButtonMenuBorder ButtonMenuStyle ProfileStyle  ButtonMenuHover "
        onmouseenter="displayProfileMenu(this)" onmouseleave="NondisplayProfileMenu(this)" >
         <img src="Image/Icon/Profile.png"  style="transform: translate(-5px,-2px);">';
 echo$name;
     echo'</a>';
+
   }
   else {
       echo ' <a id="ProfileMenuButton" href="index.html" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle "

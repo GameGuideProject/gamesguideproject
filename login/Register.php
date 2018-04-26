@@ -27,12 +27,12 @@ if (!(empty($name)||empty($Email)||empty($password)||empty($password1))){
             if (mysqli_query($DataBase, $query)) {
                 $_SESSION['username'] = $name;
                 $_SESSION['check']= 1;
-                header("Location: ../Project/Home.html");
+                header("Location: ../Project/Home.php");
                 exit;
             }
              else {
                  $_SESSION['check']= 0;
-                 header( "Register.html");
+                 header( "Location: Register.html");
                  exit;
                 #echo 'not here';
              }
@@ -40,20 +40,20 @@ if (!(empty($name)||empty($Email)||empty($password)||empty($password1))){
         }
           else {
               $_SESSION['check']= 0;
-              header( "Register.html");
+              header( "Location: Register.html");
               exit;
             #echo"not equal";
           }
     }
 else {
     $_SESSION['check']= 0;
-    header( "Register.html");
+    header( "Location: Register.html");
     exit;
         #echo 'not email';
 }
 }
 $_SESSION['check']= 0;
-header( "Register.html");
+header( "Location: Register.html");
 exit;
 ?>
 

@@ -29,6 +29,7 @@
 			</div>
 			<label for="Email">Email</label>
 			<br/>
+
 			<input type="email" id="Email" name ="email" pattern=".{6,}">
 			<br/>
 			<label for="password">Password</label>
@@ -37,6 +38,11 @@
 			<br/>
 			<button type="submit" name ="submit">Sign In</button>
 			<br/>
+			<?php
+            if (issSet($_SESSION['']){
+            echo '';
+            }
+            ?>
 			<a href="Forgot%20Password.html"><p class="small">Forgot your password?</p></a>
 			<br/>
 			<a href="Register.html"><p class="small">Register now.</p></a>

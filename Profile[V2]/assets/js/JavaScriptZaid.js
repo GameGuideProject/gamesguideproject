@@ -40,7 +40,8 @@ function SetToEditPassword(obj1,obj2,obj3){
 
 isEditi=false;
 function SetToEditInfo(obj1,obj2){
-
+ alert(obj1.innerHTML);
+ alert(obj2.innerHTML);
     if(isEditi){
         obj1.removeAttribute("disabled");
         obj2.removeAttribute("disabled");
@@ -57,3 +58,7 @@ function SetToEditInfo(obj1,obj2){
         isEditi=true;
     }
 }
+
+$(document).ready(function(){
+
+})
