@@ -3,6 +3,7 @@ session_start();
 include_once '../login/dbh.php';
 if (isset($_SESSION['check'])){
     $check=$_SESSION['check'];
+
 }
 else $check=0;
 
@@ -39,7 +40,7 @@ else   $username='';
 
 <body style="background-color:#515151;">
 
-<div id="write"></div>
+<div id="write" style="display: none"></div>
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="height:58px;">
         <div class="container"><a class="navbar-brand" href="#">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -213,7 +214,7 @@ else {
                     <div class="row">
                         <div class="col" style="padding-left:0px;padding-right:0px;/*box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);*/margin-right:0px;height:100%;"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:31px;padding-right:30px;background-color:rgba(0,0,0,0.2);">About Game<br></label></div>
                     </div>
-                    <div class="row" style="height:103px;margin-left:0px;margin-right:0px;width:100%;">
+                    <div class="row" style="outline='none' ; height:103px;margin-left:0px;margin-right:0px;width:100%;">
 
                    <?php
 
@@ -291,10 +292,10 @@ else {
 
                         <div class="row" style="height:140px;margin-right:0px;margin-bottom:0px;">
 
-                            <div class="col-lg-12" style="padding-right:0px;height:120px;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(163,163,163,0.53);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:5px;margin-right:0;margin-left:0px;"></textarea>
+                            <div class="col-lg-12" style="padding-right:0px;height:120px;"><textarea id="TextArea1" style="outline='none' ;width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(163,163,163,0.53);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:5px;margin-right:0;margin-left:0px; "></textarea>
 
-                                <button class="btn btn-secondary float-right" type="button" style="padding-right:30px;padding-left:30px;" id="add_comment">Post</button>
-
+                                <button class="btn btn-secondary float-right" type="button" style="padding-right:30px;padding-left:30px;" id="addcomment"  onclick="post();">Post</button>
+<!-- onclick="post(document.getElementById('TextArea1'));" -->
                             </div>
 
                         </div>
@@ -302,6 +303,10 @@ else {
                 </div>
             </div>
         </div>
+
+
+        <div id="commentField">
+
         <div class="row" data-aos="fade-down" style="/*height:260px;*/">
             <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
                 <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
@@ -315,171 +320,17 @@ else {
                                                                                                     readonly="">  </textarea></div>
                         </div>
                         <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
+                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">0</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
                                 <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
+                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">0</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-down" style="/*height:260px;*/">
-            <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
-                <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
-                    <div class="col" style="height:100%;">
-                        <div class="row" style="margin-top:18px;margin-left:0px;"><label data-aos="flip-up" data-aos-delay="250" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="assets/img/icons8-male-user-filled-50.png" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">ZaidHabiba</label>
-                            <div
-                                    class="col"><img class="float-right" src="assets/img/icons8-menu-40.png" style="cursor:pointer;"></div>
-                        </div>
-                        <div class="row" style="height:100px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:100%;"><textarea style="width:100%;height:100%;padding:0px 0px;box-sizing:border-box;border:2px solid rgba(204,204,204,0);border-radius:4px;background-color:rgba(248,248,248,0);font-size:16px;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,0.6);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"
-                                                                                                    readonly="">Super Mario Maker received critical acclaim upon its release, with reviewers praising the game's user interface and course editing tools. By May 2016, over seven million courses had been created by players worldwide, which had been played over 600 million times. An adapted port for the Nintendo 3DS, known as Super Mario Maker for Nintendo 3DS[b], was released in December 2016.</textarea></div>
-                        </div>
-                        <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">856</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">3</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+        </div>
 </body>
 
 </html>

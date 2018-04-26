@@ -18,9 +18,7 @@ if (isset($_SESSION['game'])) {
 
             $query="UPDATE `personrating` SET `rate`='$rate' WHERE `gamename`= '$game' AND`personemail`= '$email' ";
 
-                if($result=mysqli_query($DataBase,$query)){
-
-                    print_r($result);
+                if(mysqli_query($DataBase,$query)){
 
                     echo " rate is udated";
                 }
