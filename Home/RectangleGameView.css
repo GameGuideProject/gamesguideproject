@@ -1,0 +1,87 @@
+.SuperBodyGameView{
+    min-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+    z-index: 1;
+    border-radius:5px ;
+    width: 80%;
+    margin-left: 10%;
+    display: block;
+    background:#555555;
+    height: 800px;
+    margin-top: 0%;
+
+}
+
+
+.RectangleGameViewNameStyle{
+    font-size: 16pt;
+    float: left;
+    font-family:"Calibri Light";
+    box-sizing: border-box;
+    color: #2c2c2c;
+    margin-left:7%;
+    margin-top: 1.5%;
+    text-shadow: 2px 2px 8px rgba(53,53,53,0.96);
+}
+
+
+.RectangleGameViewBodyStyle{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+    margin-top: 7%;
+    display: inline-block;
+    z-index: 1;
+    border-radius:5px ;
+    background: rgba(240, 240, 240, 0.89);
+    width: 320px;
+    height: 228px;
+    float: left;
+    margin-left: 2.5%;
+    transition: 0.7s;
+    cursor: pointer;
+}
+.RectangleGameViewBodyStyle:hover  img{
+    margin-top: -15%;
+}
+
+.RectangleGameViewBodyStyle:hover  div img{
+    margin-top: 122px;
+}
+.RectangleGameViewBodyStyle:hover  div  div{
+    color: rgba(44, 44, 44, 0.98);
+    text-shadow: 1px 1px 4px rgba(53, 53, 53, 0.33);
+    display: block;
+}
+
+.RectangleGameViewBodyStyle:hover  div  div img{
+
+    display: block;
+}
+
+.RectangleGameViewDescription{
+    display: none;
+    font-size: 12pt;
+    float: left;
+    font-family:'Calibri Light';
+    margin-left: 7%;
+    margin-top: 0.3%;
+    color: rgba(44, 44, 44, 0);
+    text-shadow: 1px 1px 4px rgba(53, 53, 53, 0);
+    transition:0.8s;
+
+}
+.RectangleGameViewImageStyle{
+    transition: 0.7s;
+}
+.RectangleGameViewIconStyle{
+    margin-top: 155px;
+    margin-left: 260px;
+    position: absolute;
+    transition: 0.7s;
+}
+
+.RectangleGameViewIconsTypeStyle{
+    margin-right: 2%;
+    margin-left: 10%;
+    margin-top: 5%;
+    position: absolute;
+}

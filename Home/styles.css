@@ -1,0 +1,28 @@
+#AgeRequired:hover,
+#CompanyName:hover,
+#GameDescription:hover,
+#GameLink:hover,
+#GameName:hover,
+#GameShortDescription:hover,
+#ReleasedDate:hover,
+#date:hover{box-shadow:0 2px 4px 0 rgba(0,0,0,.52),0 3px 10px 0 rgba(0,0,0,.35)}
+#GameDescription,
+#GameShortDescription{height:150px;padding:12px 20px;background-color:#f8f8f8;resize:none;text-shadow:2px 2px 8px rgba(41,41,41,.6)}#GameDescription,#GameName,#GameShortDescription{text-shadow:2px 2px 8px rgba(41,41,41,.6)}
+#BackGroundImage:hover
+,#BackGroundImagerow:hover
+,#FirstImage:hover,
+#FirstImagerow:hover,
+#IconImagerow:hover,
+#ScandImage:hover,
+#ScandImagerow:hover,
+#ThirdImage:hover,
+#ThirdImagerow:hover{background:rgba(197,197,197,.28)}
+#GameName{width:100%;box-sizing:border-box;border:2px solid #ccc;border-radius:4px;font-size:16px;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03)}
+#CompanyName,#GameLink{box-sizing:border-box;border:2px solid #ccc;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03);width:100%}
+#CompanyName{border-radius:4px;font-size:16px;text-shadow:1px 1px 4px rgba(41,41,41,.6)}
+#GameLink{border-radius:4px;font-size:16px;text-shadow:1px 1px 4px rgba(41,41,41,.2)}
+#AgeRequired,
+#GameShortDescription{border:2px solid #ccc;box-sizing:border-box;font-size:16px}
+#AgeRequired{border-radius:4px;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03)}
+#GameShortDescription{width:100%;border-radius:4px}.form-check{margin-left:15px}
+#GameDescription{width:100%;box-sizing:border-box;border:2px solid #ccc;border-radius:4px;font-size:16px}

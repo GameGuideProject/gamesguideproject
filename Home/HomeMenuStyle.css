@@ -1,0 +1,91 @@
+.Shadow:hover{
+   /* box-shadow: 0 12px 16px 0 rgba(75, 75, 75, 0.11), 0 17px 50px 0 rgba(76, 76, 76, 0.05);*/
+}
+.ButtonMenuHover:hover{
+    background: rgba(197, 197, 197, 0.2);
+    text-overline-style: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+
+
+.ButtonMenuStyle{
+    text-decoration:unset;
+    text-align: center;
+    color: rgb(44, 44, 44);
+}
+.MenuStyle{
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 500;
+}
+
+
+.MenuBorder{
+    width: 100%;
+    overflow: hidden;
+}
+
+.SearchStyle{
+    border: none;
+
+    background: rgba(255,255,255,0);
+    color: #383838;
+    font-size: 11pt;
+    margin-left: 5px;
+    height: 20px;
+    font-family:'Montserrat', sans-serif !important;
+}
+.SearchStyleButton{
+    cursor: pointer;
+}
+
+.SearchStyleButtonHover:hover{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+
+.ButtonMenuBorder{
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}
+
+.MenuItemBorder{
+    width: 135px;
+    overflow: hidden;
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+.MenuItemStyle{
+    display: none;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 500;
+}
+.ButtonMenuItemStyle{
+    text-decoration:unset;
+    text-align: center;
+    color: #222222;
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+
+.ButtonMenuItemHoverStyle:hover {
+    background: rgb(163, 9, 0);
+    color: #ffffff;
+    text-overline-style: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+}
+.ButtonMenuItemBorder{
+    padding: 8px 16px;
+    float: top;
+    width: 135px;
+    display: block;
+    outline: 0;
+    border-bottom: 1px solid rgb(77, 77, 77);
+}
