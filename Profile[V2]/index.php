@@ -16,6 +16,37 @@ if (isset($_SESSION['email'])){
 }
 else $email="";
 
+if (isset($_SESSION['favoriteCount'])){
+    $favCount=$_SESSION['favoriteCount'];
+}
+else $favCount="0";
+
+if (isset($_SESSION['commentCount'])){
+    $commentCount=$_SESSION['commentCount'];
+}
+else $commentCount="0";
+
+if (isset($_SESSION['likesCount'])){
+    $likes=$_SESSION['likesCount'];
+}
+else $likes="0";
+
+if (isset($_SESSION['dislikesCount'])){
+    $dislikes=$_SESSION['dislikesCount'];
+}
+else $dislikes="0";
+
+if (isset($_SESSION['favNum'])){
+    $favNum=$_SESSION['favNum'];
+}
+else $favNum=0;
+
+if (isset ($_SESSION['favName'])){
+    $favName=$_SESSION['favName'];
+}
+else $favName=new ArrayObject();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,6 +72,8 @@ else $email="";
 </head>
 
 <body onload="SetToEditInfo(document.getElementById('Name'),document.getElementById('Email'));SetToEditPassword(document.getElementById('OldPassword'),document.getElementById('NewPassword'),document.getElementById('RepeatNewPassword'))" style="background:rgba(62,62,62,0.65);min-width:576px;">
+
+<div id="write"></div>
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="height:60px;">
         <div class="container"><a class="navbar-brand" href="#">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -78,7 +111,13 @@ else $email="";
         <div
             class="col" style="width:100%;">
             <div class="row" style="background:rgba(254,254,254,0.18);box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03);">
-                <div class="col-lg-4 mr-auto" style="/*background:rgba(254,254,254,0.18);*/padding-left:0px;padding-top:5px;width:50%;"><label class="col-form-label float-left" data-aos="flip-up" data-aos-duration="400" data-aos-delay="750" data-aos-once="true" style="font-size:33px;margin-left:20px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);width:100%;"><img src="assets/img/icons8-male-user-filled-50.png" style="margin-left:0px;margin-right:10px;margin-top:-5px;"><strong>ZaidHabiba</strong></label></div>
+
+                <?php
+                if ($check==1){
+               echo ' <div class="col-lg-4 mr-auto" style="/*background:rgba(254,254,254,0.18);*/padding-left:0px;padding-top:5px;width:50%;"><label class="col-form-label float-left" data-aos="flip-up" data-aos-duration="400" data-aos-delay="750" data-aos-once="true" style="font-size:33px;margin-left:20px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);width:100%;"><img src="assets/img/icons8-male-user-filled-50.png" style="margin-left:0px;margin-right:10px;margin-top:-5px;"><strong>'.$usernam.'</strong></label></div>
+                ';}
+
+                ?>
                 <div
                     class="col-lg-4 float-right ml-auto" style="padding-left:40px;padding-right:0px;padding-top:5px;padding-bottom:5px;width:50%;">
                     <div class="dropdown"><button class="btn btn-primary dropdown-toggle float-right" data-toggle="dropdown" aria-expanded="false" type="button" style="width:150px;height:40px;margin-top:8px;background-color:rgb(210,210,210);color:rgb(4,4,4);box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03);margin-right:15px;margin-left:0px;">More</button>
@@ -94,25 +133,56 @@ else $email="";
                 <div class="col" style="padding-left:0px;width:25%;height:100%;padding-right:0px;">
                     <div class="row" data-aos="fade-up" data-aos-duration="300" data-aos-delay="150" data-aos-once="true" style="margin-right:0px;padding-right:0px;padding-left:40%;margin-top:16px;width:100%;margin-left:0px;">
                         <div class="col-lg-6" style="padding-left:0px;padding-right:0px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="rubberBand" style="padding-bottom:0px;padding-top:0px;margin-top:0px;cursor:pointer;"></div>
-                        <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Like" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong>163</strong></label></div>
+
+                   <?php
+
+                   echo '    <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Like" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$likes.'</pre></strong></label></div>
+                         ';
+
+                   ?>
+
                     </div>
                 </div>
                 <div class="col-lg-3" style="padding-left:0px;width:25%;height:100%;padding-right:0px;">
                     <div class="row" data-aos="fade-up" data-aos-duration="300" data-aos-delay="250" data-aos-once="true" style="margin-right:0px;padding-right:0px;padding-left:40%;margin-top:16px;width:100%;margin-left:0px;">
                         <div class="col-lg-6" style="padding-left:0px;padding-right:0px;width:100%;"><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="rubberBand" style="padding-bottom:0px;padding-top:0px;margin-top:0px;cursor:pointer;"></div>
-                        <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="DisLike" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong>163</strong></label></div>
+
+                   <?php
+
+
+                   echo '     <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="DisLike" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$dislikes.'</pre></strong></label></div>
+                        ';
+
+                   ?>
+
                     </div>
                 </div>
                 <div class="col" style="padding-left:0px;width:25%;height:100%;padding-right:0px;">
                     <div class="row" data-aos="fade-up" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" style="margin-right:0px;padding-right:0px;padding-left:40%;margin-top:16px;margin-left:0px;">
                         <div class="col-lg-6" style="padding-left:0px;padding-right:0px;"><img src="assets/img/icons8-chat-bubble-40.png" data-bs-hover-animate="tada" style="padding-bottom:0px;padding-top:0px;margin-top:0px;cursor:pointer;"></div>
-                        <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Comment" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong>163</strong></label></div>
+
+                   <?php
+
+                  echo '      <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Comment" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$commentCount.'</pre></strong></label></div>
+                       ';
+
+                   ?>
+
+
                     </div>
                 </div>
                 <div class="col" style="padding-left:0px;width:25%;height:100%;padding-right:0px;">
+
+
                     <div class="row" data-aos="fade-up" data-aos-duration="300" data-aos-delay="450" data-aos-once="true" style="margin-right:0px;padding-right:0px;padding-left:40%;margin-top:16px;width:100%;margin-left:0px;">
                         <div class="col-lg-6" style="padding-left:0px;padding-right:0px;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="padding-bottom:0px;padding-top:0px;margin-top:0px;cursor:pointer;"></div>
-                        <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Favorite" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong>254</strong></label></div>
+
+                        <?php
+                    echo '   <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Favorite" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong> <pre>'.$favCount.'</pre></strong></label></div>
+                       ';
+
+                  ?>
+
                     </div>
                 </div>
             </div>
@@ -154,7 +224,7 @@ else $email="";
                     <div class="col" style="width:100%;padding-right:0px;padding-left:0px;">
                         <div class="form-row" style="width:100%;">
                             <div class="col-lg-11" style="width:50%;padding-right:10px;padding-left:0px;"><button class="btn btn-info float-right" type="button" id="EditInfoButton" onclick="SetToEditInfo(document.getElementById('Name'),document.getElementById('Email'))" style="padding-left:20px;padding-right:20px;border-radius:0px;">Edit</button></div>
-                            <div class="col-lg-1 float-right" style="width:50%;padding-right:0px;padding-left:0px;"><button class="btn btn-success float-right" type="submit" id="SaveInfoButton" style="border-radius:0px;">&nbsp; Save &nbsp;</button></div>
+                            <div class="col-lg-1 float-right" style="width:50%;padding-right:0px;padding-left:0px;"><button class="btn btn-success float-right" type="button" id="SaveInfoButton" style="border-radius:0px;">&nbsp; Save </button></div>
                         </div>
                     </div>
                 </div>
@@ -190,18 +260,45 @@ else $email="";
                             <div class="col-lg-11" style="width:50%;padding-right:10px;padding-left:0px;"><button class="btn btn-info float-right" type="button" id="EditPasswordButton"
                                                                                                                   onclick="SetToEditPassword(document.getElementById('OldPassword'),document.getElementById('NewPassword'),document.getElementById('RepeatNewPassword'))"
                                                                                                                   style="padding-right:20px;padding-left:20px;border-radius:0px;">Edit</button></div>
-                            <div class="col-lg-1 float-right" style="width:50%;padding-right:0px;padding-left:0px;"><button class="btn btn-success float-right" type="submit" id="SavePasswordButton" style="border-radius:0px;">&nbsp; Save &nbsp;</button></div>
+                            <div class="col-lg-1 float-right" style="width:50%;padding-right:0px;padding-left:0px;"><button class="btn btn-success float-right" type="button" id="SavePasswordButton" style="border-radius:0px;">&nbsp; Save &nbsp;</button></div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
         <div class="col" id="Favorit" style="height:15px;background:rgba(194,194,194,0.69);margin-top:0px;z-index:2;width:100%;padding-right:0px;padding-left:0px;"></div>
-        <div class="col" style="/*background:rgba(123,123,123,0.64);*/height:75px;box-shadow:0 2px 4px 0 rgba(0,0,0,0.17),0 3px 10px 0 rgba(0,0,0,0.29);z-index:20;width:100%;background-color:rgba(217,217,217,0.75);padding-right:0px;padding-left:0px;"><label class="col-form-label" style="font-size:33px;margin-left:20px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);">Favorit<br></label></div>
+        <div class="col" style="/*background:rgba(123,123,123,0.64);*/height:75px;box-shadow:0 2px 4px 0 rgba(0,0,0,0.17),0 3px 10px 0 rgba(0,0,0,0.29);z-index:20;width:100%;background-color:rgba(217,217,217,0.75);padding-right:0px;padding-left:0px;"><label class="col-form-label" style="font-size:33px;margin-left:20px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);">Favorite<br></label></div>
+
         <div class="col" style="background-color:rgba(254,254,254,0.18);height:100%;">
+
+
+            <?php
+
+            for ($i=0;$i<$favNum;$i++){
+
+                echo '
+                <div>
+                 <div  id="'."a".$i.'"class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
+                <div  class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
+                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label id="'."-".$i.'" class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">'.$favName[$i].'</label></div>
+                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
+                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
+                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button id="'.$i.'" class="btn btn-dark btn-lg goToGame" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
+                        <div
+                            class="col-lg-4" style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button id="'."+".$i.'" class="btn btn-danger btn-lg , remove" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
+                    </div>
+                </div>
+            </div>
+            </div>';
+            }
+
+
+
+            ?>
+            <!--
             <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
                 <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
+                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
                 <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
                     <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
                         <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
@@ -210,127 +307,8 @@ else $email="";
                     </div>
                 </div>
             </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">Game Name</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button class="btn btn-dark btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div class="col-lg-4"
-                             style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button class="btn btn-danger btn-lg" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
+-->
+
         </div>
     </div>
 </div>

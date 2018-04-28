@@ -16,25 +16,38 @@ if (isset($_SESSION['game'])) {
 
             if ($rate>-1){
 
-            $query="UPDATE `personrating` SET `rate`='$rate' WHERE `gamename`= '$game' AND`personemail`= '$email' ";
 
-                if(mysqli_query($DataBase,$query)){
+                $query="SELECT   `id` FROM `personrating` WHERE `gamename`='$game' AND`personemail`='$email'";
 
-                    echo " rate is udated";
-                }
-                else {
+                if ($result=mysqli_query($DataBase,$query)){
+                    $row=mysqli_fetch_assoc($result);
+                    if ($row['id']>0){
 
+                        $query="UPDATE `personrating` SET `rate`='$rate' WHERE `gamename`= '$game' AND`personemail`= '$email' ";
 
-                    $query="INSERT INTO `personrating`(`rate`, `gamename`, `personemail`) VALUES ('$rate','$game','$email')";
+                        if(mysqli_query($DataBase,$query)){
 
-                    if(mysqli_query($DataBase,$query)){
-                        echo " rate is added";
+                          //  echo " rate is udated";
+                        }
+
                     }
                     else {
-                        echo "nothing";
-                    }
 
+
+                        $query="INSERT INTO `personrating`(`rate`, `gamename`, `personemail`) VALUES ('$rate','$game','$email')";
+
+                        if(mysqli_query($DataBase,$query)){
+                           // echo " rate is added";
+                        }
+                        else {
+                           // echo "nothing";
+                        }
+
+                    }
                 }
+
+
+
 
 
         }

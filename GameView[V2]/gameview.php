@@ -40,7 +40,7 @@ else   $username='';
 
 <body style="background-color:#515151;">
 
-<div id="write" style="display: none"></div>
+<div id="write" ></div>
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="height:58px;">
         <div class="container"><a class="navbar-brand" href="#">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -198,15 +198,62 @@ else {
             </div>
             <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
             <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
-                <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:52px;padding-right:37px;background-color:rgba(0,0,0,0.2);">Platforms<br></label><img src="assets/img/pc.png" data-bs-hover-animate="jello"
-                                                                                                                                                                                                                                                                                                                                                            style="padding-right:4px;padding-left:10px;padding-bottom:4px;"><img src="assets/img/playstation.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;"><img src="assets/img/xbox.png" data-bs-hover-animate="jello"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     style="padding-right:4px;padding-left:10px;padding-bottom:4px;"><img src="assets/img/Action.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;"><img src="assets/img/board.png" data-bs-hover-animate="jello"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         style="padding-right:4px;padding-left:10px;padding-bottom:4px;"></div>
+                <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:52px;padding-right:37px;background-color:rgba(0,0,0,0.2);">Platforms<br></label>
+                <?php
+                $plat=$_SESSION['platform'];
+                  for ($i=0;$i<$plat->count();$i++){
+
+                      if ($plat[$i]=="PC") {
+                          echo ' <img src="assets/img/pc.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;">';
+                      }
+                   else if ($plat[$i]=="PlaySation") {
+                       echo ' <img src="assets/img/playstation.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;">';
+                   }
+                   else if ($plat[$i]=="XBox") {
+                       echo ' <img src="assets/img/xbox.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;">';
+                   }
+                   else if ($plat[$i]=="Mobile") {
+                       echo ' <img src="assets/img/mobil.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;">';
+                   }
+                   else if ($plat[$i]=="Other"){
+                          echo'<img src="assets/img/other.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;">';
+                   }
+                  }
+                ?>
+                </div>
             </div>
                 <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
                 <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
-                    <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:37px;padding-right:37px;background-color:rgba(0,0,0,0.2);width:172px;">Categories<br></label><img src="assets/img/Action.png"
-                                                                                                                                                                                                                                                                                                                                                                             data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;"><img src="assets/img/board.png" data-bs-hover-animate="jello" style="padding-right:4px;padding-left:10px;padding-bottom:4px;"></div>
+                    <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:37px;padding-right:37px;background-color:rgba(0,0,0,0.2);width:172px;">Categories<br></label>
+
+                    <?php
+
+                    $type=$_SESSION['type'];
+                    for ($i=0;$i<$type->count();$i++) {
+
+                        if ($type[$i]=="Action") {
+                            echo '<img src = "assets/img/Action.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+                        }
+                        else if ($type[$i]=="Board"){
+                            echo ' <img src = "assets/img/board.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+                        }
+                        else if ($type[$i]=="Adventure") {
+                            echo ' <img src = "assets/img/Adventure.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+
+                        }
+                        else if ($type[$i]=="Sport") {
+                            echo '<img src = "assets/img/sport_game_soocer_football-2-512.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+                        }
+                        else if ($type[$i]=="Other"){
+                            echo '<img src = "assets/img/other.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+                        }
+                        else if ($type[$i]=="Arcade"){
+                            echo '<img src = "assets/img/Arcade.png" data - bs - hover - animate = "jello" style = "padding-right:4px;padding-left:10px;padding-bottom:4px;" >';
+                        }
+                    }
+                    ?>
+
+                    </div>
                 </div>
             <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
             <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:154px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);">

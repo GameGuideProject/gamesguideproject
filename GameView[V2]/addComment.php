@@ -6,14 +6,15 @@ include_once "../login/dbh.php";
 
 if (isset($_SESSION['game'])) {
 
-    if (isset($_POST['text1'])) {
+    if (isset($_SESSION['username'])) {
 
         if (isset($_POST['text1'])) {
             $game = $_SESSION['game'];
             $email = $_SESSION['email'];
             $text = $_POST['text1'];
+            $name=$_SESSION['username'];
 
-            $query="INSERT INTO `comment`(`gamename`,  `flag`, `text`) VALUES ('$game','0','$text')";
+            $query="INSERT INTO `comment`(`gamename`,  `flag`, `text`, `username`) VALUES ('$game','0','$text','$name')";
 
             if (mysqli_query($DataBase,$query)){
 
@@ -77,7 +78,7 @@ if (isset($_SESSION['game'])) {
             else echo"nothing added";
         }else echo"text not added";
 
-    }else echo"text not added";
+    }else echo"no user name";
 }else echo "game not here";
 ?>
 

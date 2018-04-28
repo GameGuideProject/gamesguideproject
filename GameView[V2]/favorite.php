@@ -13,7 +13,7 @@ include_once "../login/dbh.php";
                    $email = $_SESSION['email'];
                    $flag = $_POST['flag'];
 
-                   echo $game;
+                  /* echo $game;
                    echo '<br>';
 
                    echo $email;
@@ -21,32 +21,32 @@ include_once "../login/dbh.php";
 
                    echo $flag;
                    echo '<br>';
-
+*/
                    if ($flag == 1) {
 
                        $query = "INSERT INTO `personfavoritegame`(`gamename`, `personEmail`) VALUES ( '$game' , '$email' )";
-
+//echo  $query;
                        if (mysqli_query($DataBase, $query)) {
-                           echo"done adding";
-                       }else echo 'nothing added';
+                          // echo"done adding";
+                       }//else echo 'nothing added';
 
                    }
                    else if($flag==-1){
                        $query = "DELETE FROM `personfavoritegame` WHERE `gamename`= '$game' AND `personEmail` = '$email'";
 
                        if (mysqli_query($DataBase, $query)) {
-                           echo"done deleting";
-                       }else echo 'nothing deleted';
+                          // echo"done deleting";
+                       }//else echo 'nothing deleted';
 
                    }
-                   else echo$flag;
+                   //else echo$flag;
 
                }else {
-                   echo "flag in null";
+                   //echo "flag in null";
                }
            }
            else {
-               echo "email is null";
+               //echo "email is null";
            }
 
        }else {

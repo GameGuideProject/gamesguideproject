@@ -114,9 +114,9 @@ $(document).ready(function(){
         }
 
 
-        $( "#favoriteicon" ).load( "favorite.php" ,{flag : flag}, function(data) {
-            //$("#write").html(data);
-            alert(data);
+        $( "#write" ).load( "favorite.php" ,{flag : flag}, function(data) {
+            $("#write").html(data);
+           // alert(data);
         });
 
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
             $("#write").html(data);
 
 
-            alert(data);
+           // alert(data);
 
 
 
