@@ -12,6 +12,8 @@ if (isset($_SESSION['username'])){
 }
 else   $username='';
 
+$_SESSION['checkComment']=0;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -354,6 +356,16 @@ else {
 
         <div id="commentField">
 
+
+            <?php
+            include "addComment.php";
+            ?>
+
+
+
+
+
+<!--
         <div class="row" data-aos="fade-down" style="/*height:260px;*/">
             <div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
                 <div class="row" style="/*background-color:#eaeaea;*/height:251px;">
@@ -376,7 +388,7 @@ else {
                 </div>
             </div>
         </div>
-
+-->
         </div>
 </body>
 
