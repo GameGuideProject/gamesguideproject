@@ -117,14 +117,14 @@ $(document).ready(function(){
 
                 })
             //npass===rep
-            if (0) {
+            if (1) {
 
                 $.ajax({
                     type: 'POST',
                     url: 'updatePass.php',
                     data: {opass: opass, npass: npass, rep:rep},
                     success: function (data) {
-                     alert(data);
+                    // alert(data);
                     }
                 });
 
@@ -170,9 +170,6 @@ $(document).ready(function(){
         var y=x.replace('+','#-');
 
         var value= $(y).text();
-
-
-
 
 
 

@@ -248,7 +248,7 @@ $(document).ready(function() {
             data: {likeFlag: flag, ID: ID},
             success: function (data) {
                 // $('#commentField').empty();
-                alert(data);
+               // alert(data);
                 // alert(1);
                 //       alert(data);
                 //window.location.href = "../GameView[V2]/gameview.php";
@@ -300,7 +300,7 @@ $(document).ready(function(){
             data: {likeFlag: flag ,ID:ID},
             success: function (data) {
                 // $('#commentField').empty();
-                alert(data);
+               // alert(data);
                 // alert(1);
                 //       alert(data);
                 //window.location.href = "../GameView[V2]/gameview.php";
