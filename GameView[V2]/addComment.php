@@ -1,38 +1,92 @@
 <?php
-if (isset($_SESSION['checkComment'])) {
+if (!isset($_SESSION['checkComment'])) {
     session_start();
 }
 include_once "../login/dbh.php";
 
-
-if (isset($_SESSION['game'])) {
+//$_SESSION['name']="darksiders2";
+//$_SESSION['email']="ayman12@hotmail.com";
+if (isset($_SESSION['name'])) {
 
     if (isset($_SESSION['username'])) {
 
-        if (isset($_POST['text1'])) {
-            $game = $_SESSION['game'];
-            $email = $_SESSION['email'];
-            $text = $_POST['text1'];
-            $name=$_SESSION['username'];
+        if (isset($_SESSION['email1'])) {
+            $email = $_SESSION['email1'];
+            $name = $_SESSION['username'];
+            $game=$_SESSION['name'];
 
-            $query="INSERT INTO `comment`(`gamename`,  `flag`, `text`, `username`) VALUES ('$game','0','$text','$name')";
+            if (isset($_POST['text1'])) {
 
-            if (mysqli_query($DataBase,$query)){
+                $email = $_SESSION['email1'];
+                $text = $_POST['text1'];
+                $name = $_SESSION['username'];
+                $game=$_SESSION['name'];
+                $query = "INSERT INTO `comment`(`gamename`,  `flag`, `text`, `username`) VALUES ('$game','0','$text','$name')";
 
-                $query="SELECT  `gamename`, `id`, `text`, `username` FROM `comment` WHERE 1";
+                if (mysqli_query($DataBase, $query)) {
+                } //else echo"nothing added";
+            } //else echo"there is no text";
+            $query = "SELECT `gamename`, `id`, `text`, `username` FROM `comment` WHERE `gamename`='$game'";
 
-                if ($result=mysqli_query($DataBase,$query)){
+            if ($result = mysqli_query($DataBase, $query)) {
 
-                    while($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
 
-                        $gameName=$row['gamename'];
-                        $Id=$row['id'];
-                        $text = $row['text'];
-                        $name = $row['username'];
+                    $gameName = $row['gamename'];
+                    $Id = $row['id'];
+                    //   echo $Id;
 
-                        $likes=0;
-                        $dislkes=0;
-                        $query1="SELECT COUNT(*) FROM `generallike` WHERE `commentId`='$Id' AND`likeC`='1' AND`gameName`='$gameName'";
+                    $text = $row['text'];
+                    $name = $row['username'];
+
+                    $likes = 0;
+                    $dislkes = 0;
+                    $query1 = "SELECT COUNT(*) AS t FROM `generallike` WHERE `commentId`='$Id' AND `likeC`= 1 AND `dislike`=0  AND  `gameName`='$gameName'";
+
+                    //  echo $query1;
+                    if ($result1 = mysqli_query($DataBase, $query1)) {
+
+                        $row1 = mysqli_fetch_assoc($result1);
+                        //print_r($row1);
+                        $likes = $row1['t'];
+                        //echo '<br>'.$likes;
+                    }
+                    $query2 = "SELECT COUNT(*) AS t FROM `generallike` WHERE `commentId`='$Id' AND`dislike`=1 AND `likeC`= 0 AND`gameName`='$gameName'";
+                    //   echo $query2;
+                    if ($result2 = mysqli_query($DataBase, $query2)) {
+                        $row2 = mysqli_fetch_assoc($result2);
+                        //echo '<br>';
+                        //print_r($row2);
+                        $dislkes = $row2['t'];
+
+                        //echo '<br>';
+                        //echo $dislkes;
+                    }
+
+
+                    $query3 = "SELECT DISTINCT  `likeC`, `dislike` FROM `generallike` WHERE `commentId`='$Id' And `personEmail`='$email' AND `gameName`='$game'";
+
+                    if ($result3 = mysqli_query($DataBase, $query3)) {
+                        $row3 = mysqli_fetch_assoc($result3);
+                        $flag1=$row3['likeC'];
+                        $flag2=$row3['dislike'];
+
+                        $img1="";
+                        $img2="";
+
+
+                        if ($flag1==1){
+                            $img1="assets/img/icons8-heart-40.png";
+                            $img2="assets/img/icons8-skull-41.png";
+                        }
+                        else if ($flag2==1){
+                            $img1="assets/img/icons8-heart-41.png";
+                            $img2="assets/img/icons8-skull-40.png";
+                        }
+                        else{
+                            $img1="assets/img/icons8-heart-41.png";
+                            $img2="assets/img/icons8-skull-41.png";
+                        }
 
 
                         echo ' <div class="row" data-aos="fade-down" style="/*height:260px;*/">
@@ -48,9 +102,9 @@ if (isset($_SESSION['game'])) {
                                                                                                     readonly=""> ' . $text . ' </textarea></div>
                         </div>
                         <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img src="assets/img/icons8-heart-40.png" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">0</label><img src="assets/img/icons8-skull-40.png" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
+                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
                                 <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">0</label>
+                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $dislkes . '</label>
                             </div>
                         </div>
                     </div>
@@ -59,8 +113,8 @@ if (isset($_SESSION['game'])) {
         </div>';
                     }
                 }
-
-              //  echo' <div class="row" data-aos="fade-down" style="/*height:260px;*/">
+            }
+            //  echo' <div class="row" data-aos="fade-down" style="/*height:260px;*/">
             /*<div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">
                 <div class="row" style="/*background-color:#eaeaea;*/ /*height:251px;">
                     <div class="col" style="height:100%;">
@@ -84,12 +138,11 @@ if (isset($_SESSION['game'])) {
         </div>';
                 */
 
-                //  echo"comment added";
-            }
-            else echo"nothing added";
-        }else echo"text not added";
+            //  echo"comment added";
 
-    }else echo"no user name";
-}else echo "game not here";
+
+        } else echo "no user name";
+    } else echo "game not here";
+}
 ?>
 

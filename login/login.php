@@ -33,6 +33,8 @@ if(isset($_POST['submit'])) {
             $_SESSION['username'] = $username;
             $_SESSION['check'] = 1;
             $_SESSION['email']=$email;
+            $_SESSION['email1']=$email;
+            //echo $_SESSION['email'];
             $_SESSION['password']=$pass;
 
                 header('Location: ../Home/Homeold.php');

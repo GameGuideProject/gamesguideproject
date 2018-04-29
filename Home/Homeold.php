@@ -157,11 +157,11 @@ $_SESSION['checkload']=0;
                 var x=this.id;
                 var y=x.replace('a','#d');
 
-
+                alert(1);
                 if ($(y)) {
                     //alert(y);
                     var value = $(y).text();
-                    //alert(value);
+                    alert(value);
                     $.ajax({
                         type: 'POST',
                         url: 'goToGame.php',

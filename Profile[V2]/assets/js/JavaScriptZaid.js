@@ -182,9 +182,8 @@ $(document).ready(function(){
             data: {RemoveFav: value},
             success: function (data) {
 
-                var k= y.replace('-',"a");
-                var w=$(k);
-                w.css("display","none");
+               $('#printFav').load("addFav.php");
+
             }
         });
 

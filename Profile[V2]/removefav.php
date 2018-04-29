@@ -10,7 +10,7 @@ if (isset($_POST['RemoveFav'])){
 
         if ($result=mysqli_query($DataBase,$query)){
 
-            echo '1';
+            //echo '1';
         }
 
 

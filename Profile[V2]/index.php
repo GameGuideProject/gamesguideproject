@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include_once "../login/dbh.php";
 if(isset($_SESSION['username'])){
     $usernam=$_SESSION['username'];
 }
@@ -112,6 +113,7 @@ else $favName=new ArrayObject();
             class="col" style="width:100%;">
             <div class="row" style="background:rgba(254,254,254,0.18);box-shadow:0 2px 4px 0 rgba(0,0,0,.24),0 3px 10px 0 rgba(0,0,0,.03);">
 
+
                 <?php
                 if ($check==1){
                echo ' <div class="col-lg-4 mr-auto" style="/*background:rgba(254,254,254,0.18);*/padding-left:0px;padding-top:5px;width:50%;"><label class="col-form-label float-left" data-aos="flip-up" data-aos-duration="400" data-aos-delay="750" data-aos-once="true" style="font-size:33px;margin-left:20px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);width:100%;"><img src="assets/img/icons8-male-user-filled-50.png" style="margin-left:0px;margin-right:10px;margin-top:-5px;"><strong>'.$usernam.'</strong></label></div>
@@ -127,6 +129,7 @@ else $favName=new ArrayObject();
                 </div>
             </div>
         </div>
+
         <div class="col" style="height:15px;background:rgba(194,194,194,0.69);margin-top:0px;"></div>
         <div class="col" style="height:99px;background:rgba(135,135,135,0.63);margin-top:0px;box-shadow:0 2px 4px 0 rgba(0,0,0,0.17),0 3px 10px 0 rgba(0,0,0,0.29);z-index:20;width:100%;padding-right:0px;padding-left:0px;">
             <div class="row" style="height:120px;width:100%;margin-left:0px;margin-right:0px;">
@@ -136,9 +139,18 @@ else $favName=new ArrayObject();
 
                    <?php
 
-                   echo '    <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Like" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$likes.'</pre></strong></label></div>
-                         ';
+                   $email = $_SESSION['email1'];
+                   $name = $_SESSION['username'];
 
+                   $query="SELECT COUNT(*) FROM `generallike` WHERE `personEmail`='$email' AND `likeC`=1";
+                   if($result=mysqli_query($DataBase,$query)) {
+
+                       $row = mysqli_fetch_assoc($result);
+                       $likes=$row['COUNT(*)'];
+
+                       echo '    <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Like" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre style="text-align: center "> ' .$likes. '</pre></strong></label></div>
+                         ';
+                   }
                    ?>
 
                     </div>
@@ -149,10 +161,19 @@ else $favName=new ArrayObject();
 
                    <?php
 
+                   $email = $_SESSION['email1'];
+                   $name = $_SESSION['username'];
 
-                   echo '     <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="DisLike" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$dislikes.'</pre></strong></label></div>
+                   $query="SELECT COUNT(*)  FROM `generallike` WHERE `personEmail`='$email' AND `dislike`=1";
+                   if($result=mysqli_query($DataBase,$query)) {
+
+                       $row = mysqli_fetch_assoc($result);
+                       $likes = $row['COUNT(*)'];
+
+
+                       echo '     <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="DisLike" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> ' . $likes . '</pre></strong></label></div>
                         ';
-
+                   }
                    ?>
 
                     </div>
@@ -163,9 +184,21 @@ else $favName=new ArrayObject();
 
                    <?php
 
-                  echo '      <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Comment" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> '.$commentCount.'</pre></strong></label></div>
-                       ';
 
+
+                   $email = $_SESSION['email1'];
+                   $name = $_SESSION['username'];
+
+                   $query="SELECT COUNT(*) FROM `comment` WHERE `username`='$name'";
+                   if($result=mysqli_query($DataBase,$query)) {
+
+                       $row = mysqli_fetch_assoc($result);
+                       $likes = $row['COUNT(*)'];
+
+
+                       echo '      <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Comment" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong><pre> ' . $likes . '</pre></strong></label></div>
+                       ';
+                   }
                    ?>
 
 
@@ -178,13 +211,25 @@ else $favName=new ArrayObject();
                         <div class="col-lg-6" style="padding-left:0px;padding-right:0px;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="padding-bottom:0px;padding-top:0px;margin-top:0px;cursor:pointer;"></div>
 
                         <?php
-                    echo '   <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Favorite" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong> <pre>'.$favCount.'</pre></strong></label></div>
-                       ';
 
+                        $email = $_SESSION['email1'];
+                        $name = $_SESSION['username'];
+
+                        $query="SELECT COUNT(*) FROM `personfavoritegame` WHERE `personEmail`='$email'";
+                        if($result=mysqli_query($DataBase,$query)) {
+
+                            $row = mysqli_fetch_assoc($result);
+                            $likes = $row['COUNT(*)'];
+
+
+                            echo '   <div class="col-lg-7" style="padding-left:0px;padding-right:0px;"><label class="col-form-label" id="Favorite" style="padding-top:0px;padding-left:0px;font-size:22px;padding-bottom:0px;"><strong> <pre>  ' . $likes . '</pre></strong></label></div>
+                       ';
+                        }
                   ?>
 
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="col" id="profile" style="height:17px;background:rgba(194,194,194,0.69);margin-top:0px;z-index:2;"></div>
@@ -271,30 +316,14 @@ else $favName=new ArrayObject();
 
         <div class="col" style="background-color:rgba(254,254,254,0.18);height:100%;">
 
-
+            <div id="printFav">
             <?php
 
-            for ($i=0;$i<$favNum;$i++){
-
-                echo '
-                <div>
-                 <div  id="'."a".$i.'"class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
-                <div  class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>
-                <div class="col-lg-6" style="padding-top:3px;height:100%;width:80%;"><label id="'."-".$i.'" class="col-form-label" style="font-size:20px;margin-left:0px;padding-left:0px;text-shadow:2px 2px 8px rgba(34,34,34,0.9);margin-top:5px;padding-bottom:9px;">'.$favName[$i].'</label></div>
-                <div class="col-lg-4 ml-auto" style="padding-left:5px;padding-right:5px;height:100%;margin-right:0px;padding-top:5px;padding-bottom:5px;margin-left:0px;width:100%;">
-                    <div class="row" style="height:52px;margin-left:0px;margin-right:0px;width:100%;">
-                        <div class="col-lg-8" style="height:100%;padding-right:0px;padding-left:0px;width:70%;"><button id="'.$i.'" class="btn btn-dark btn-lg goToGame" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:rgb(43,48,52);">Go To Game</button></div>
-                        <div
-                            class="col-lg-4" style="height:100%;padding-left:0px;padding-right:0px;border-radius:0px;width:30%;"><button id="'."+".$i.'" class="btn btn-danger btn-lg , remove" type="button" style="width:100%;height:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;border-radius:0px;background-color:#aa1624;">Remove</button></div>
-                    </div>
-                </div>
-            </div>
-            </div>';
-            }
-
+           include "addFav.php";
 
 
             ?>
+        </div>
             <!--
             <div class="row" data-aos="fade-down" data-aos-duration="200" style="background:rgba(191,191,191,0.62);padding-top:3px;padding-bottom:3px;height:100%;">
                 <div class="col-lg-1" style="height:100%;width:20%;"><img src="assets/img/icons8-rating-40.png" data-bs-hover-animate="swing" style="margin-top:10px;"></div>

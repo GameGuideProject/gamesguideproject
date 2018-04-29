@@ -12,7 +12,13 @@ if (isset($_SESSION['username'])){
 }
 else   $username='';
 
+if (isset($_SESSION['ratting'])){
+    $ratting=$_SESSION['ratting'];
+}
+else $ratting=0;
+
 $_SESSION['checkComment']=0;
+$_SESSION['checkfavRate']=0;
 
 ?>
 <!DOCTYPE html>
@@ -92,16 +98,10 @@ $_SESSION['checkComment']=0;
     '    ?>
 
         <?php
-if ($check==1) {
 
-    echo ' <img id ="favoriteicon"  class="float-right" src="assets/img/icons8-rating-41.png" data-bs-hover-animate="rubberBand" style="margin-top:15px;cursor:pointer;"></div> ';
-    //onclick="addtoDB()"
-}
 
-else {
-    echo ' <img id ="favoriteicon1" class="float-right" src="assets/img/icons8-rating-40.png" data-bs-hover-animate="rubberBand" style="margin-top:15px;cursor:pointer;"></div> ';
+        include "favRate.php"
 
-}
 
 
 
@@ -109,7 +109,7 @@ else {
 
 
 </div>
-    <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;height:1345px;/*border-radius:9px;*/">
+    <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;height:1395px;/*border-radius:9px;*/">
         <div class="col" style="height:609px;">
             <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
             <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
@@ -148,6 +148,20 @@ else {
 
                 </div>
             </div>
+
+            <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
+            <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
+                <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);"><label class="col-form-label" style="font-size:20px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:70px;padding-right:31px;background-color:rgba(0,0,0,0.2);margin-right:0px;margin-left:0px;width:172px;">Rate<br></label>
+
+
+                    <?php
+                   echo '
+                    <img  src="assets/img/fill.png" data-bs-hover-animate="rubberBand" style="width:20px;padding-top:0px;margin-top:-6px;margin-left:14px;"><label id="printRate" class="col-form-label" style="margin-left:10px;">'.$ratting.'</label></div>';
+                    ?>
+
+                    </div>
+
+
             <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
 
             <div class="row" style="background:rgb(228,228,228);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
@@ -301,18 +315,13 @@ else {
                 <div class="row" style="background:rgba(227,227,227,0.9);padding-top:0px;margin-top:0px;height:8px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.22);"></div>
                 <div class="row" style="background:rgba(164,164,164,0.54);padding-top:0px;margin-top:0px;padding-top:0px;margin-top:0px;">
                     <div class="col" style="padding-left:0px;padding-right:0px;box-shadow:0 4px 8px 0 rgba(24,24,24,0.36), 0 6px 20px 0 rgba(25,25,25,0.15);width:100%;">
-                        <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">
-                            <div class="col" style="width:100%;padding-right:0px;padding-left:0px;">
-                                <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">
-                                    <div class="col-lg-4" style="width:25%;"></div>
-                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image1('Star1','Star2','Star3','Star4','Star5','SubmitRateButton','RateText')" style="cursor: pointer" id="Star1"></div>
-                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image2('Star1','Star2','Star3','Star4','Star5','SubmitRateButton','RateText')"   style="cursor: pointer"  id="Star2"></div>
-                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-left:0px;padding-right:0px;"><img src="assets/img/draw.png" onclick="Image3('Star1','Star2','Star3','Star4','Star5','SubmitRateButton','RateText')"   style="cursor: pointer"  id="Star3"></div>
-                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-left:0px;padding-right:0px;"><img src="assets/img/draw.png" onclick="Image4('Star1','Star2','Star3','Star4','Star5','SubmitRateButton','RateText')"   style="cursor: pointer"  id="Star4"></div>
-                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image5('Star1','Star2','Star3','Star4','Star5','SubmitRateButton','RateText')"   style="cursor: pointer"  id="Star5"></div>
-                                    <div class="col-lg-3" style="width:25%;"></div>
-                                </div>
-                            </div>
+                        <div>
+
+                            <?php
+                            include "rate.php";
+                            ?>
+
+
                         </div>
                         <div class="row" style="margin-right:0px;margin-left:0px;width:100%;">
                             <div class="col" style="width:100%;height:100%;padding-right:30px;padding-left:48%;padding-bottom:10px;padding-top:10px;"><label class="col-form-label" id="RateText" style="padding-left:0px;font-size:21px;">ADD RATE</label></div>
