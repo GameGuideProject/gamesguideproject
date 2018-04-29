@@ -119,6 +119,7 @@ $(document).ready(function(){
             //npass===rep
             if (1) {
 
+
                 $.ajax({
                     type: 'POST',
                     url: 'updatePass.php',
