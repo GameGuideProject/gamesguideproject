@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include_once '../login/dbh.php';
 if (isset($_SESSION['check'])){
     $check=$_SESSION['check'];
@@ -45,6 +44,167 @@ $_SESSION['checkfavRate']=0;
     <script src="assets/Js/script.min.js"></script>
     <script src="assets/Js/JavaScript.js"></script>
     <script src="assets/Js/view.js"> </script>
+
+    <script type="text/javascript">
+
+
+
+            $(document).ready(function () {
+                $(".like").click(function () {
+
+
+                    var x = this.id;
+                    var z = x;
+                    var ID = z.replace('a', '');
+                    var Dis = z.replace('a', "b");
+                    var likes = z.replace('a', '#c');
+                    var disl = z.replace('a', '#d');
+                    var flag = 0;
+
+                    var like1 = $(likes).text();
+                    var like2 = $(disl).text();
+                    var img = document.getElementById(x);
+                    var img2 = document.getElementById(Dis);
+
+                    if (img.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+
+
+                        img.src = "assets/img/icons8-heart-40.png";
+
+                        like1 = Number(like1) + 1;
+
+                        if (img2.getAttribute('src') === "assets/img/icons8-skull-41.png") {
+                            flag = 1;
+
+                        }
+                        else if (img2.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+
+                            img2.src = "assets/img/icons8-skull-41.png";
+                            flag = 2;
+                            like2 = Number(like2) - 1;
+                            if (Number(like2) < 0) {
+                                like2 = 0;
+                            }
+
+                        }
+
+
+                    }
+                    else if (img.getAttribute('src') === "assets/img/icons8-heart-40.png") {
+
+                        img.src = "assets/img/icons8-heart-41.png";
+                        flag = 3;
+                        like1 = Number(like1) - 1;
+                        if (Number(like1) < 0) {
+                            like1 = 0;
+                        }
+
+                    }
+
+                    $(likes).text(like1);
+                    $(disl).text(like2);
+                    //alert(like2);
+                    //alert(like1);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'addLike.php',
+                        data: {likeFlag: flag, ID: ID},
+                        success: function (data) {
+                            // $('#commentField').empty();
+                            // alert(data);
+                            // alert(1);
+                            //       alert(data);
+                            //window.location.href = "../GameView[V2]/gameview.php";
+                        }
+                    });
+                });
+            });
+
+
+            $(document).ready(function () {
+                $(".dislike").click(function () {
+
+                    var x = this.id;
+                    var z = x;
+                    var ID = z.replace('b', '');
+                    var Dis = z.replace('b', "a");
+                    var likes1 = z.replace('a', '#c');
+                    var disl1 = z.replace('a', '#d');
+
+                    var flag = 0;
+
+                    var img = document.getElementById(x);
+                    var img2 = document.getElementById(Dis);
+                    var like1 = $(likes1).text();
+                    var like2 = $(disl1).text();
+                    //alert(like2);
+                    //alert(like1);
+
+                    if (img.getAttribute('src') === "assets/img/icons8-skull-41.png") {
+
+                        like2 = Number(like2) + 1;
+                        img.src = "assets/img/icons8-skull-40.png";
+
+                        if (img2.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+                            flag = 1;
+
+                        }
+                        else if (img2.getAttribute('src') === "assets/img/icons8-heart-40.png") {
+
+                            img2.src = "assets/img/icons8-heart-41.png";
+                            flag = 2;
+                            like1 = Number(like1) - 1;
+                            if (Number(like1) < 0) {
+                                like1 = 0;
+                            }
+
+                        }
+
+
+                    }
+                    else if (img.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+
+                        img.src = "assets/img/icons8-skull-41.png";
+                        flag = 3;
+                        like2 = Number(like2) - 1;
+                        if (Number(like2) < 0) {
+                            like2 = 0;
+                        }
+
+                    }
+
+
+                    $(likes1).text(like2);
+                    $(disl1).text(like1);
+
+                    //alert(flag);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'addDis.php',
+                        data: {likeFlag: flag, ID: ID},
+                        success: function (data) {
+                            // $('#commentField').empty();
+                            // alert(data);
+                            // alert(1);
+                            //       alert(data);
+                            //window.location.href = "../GameView[V2]/gameview.php";
+                        }
+                    });
+
+
+
+                });
+            });
+
+
+
+
+
+
+    </script>
+
+
+
 </head>
 
 <body style="background-color:#515151;">
@@ -58,23 +218,11 @@ $_SESSION['checkfavRate']=0;
                 <ul class="nav navbar-nav ml-auto">
                     <?php
                     $username=$_SESSION['username'];
+                    echo '<li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="background:rgba(86,198,198,0.21);border-radius:20px;background-color:rgb(86,198,198);color:rgb(255,255,255);">'.$username.'</a>';
+                    ?>
+                        <div
 
-
-                        echo '<li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="background:rgba(86,198,198,0.21);border-radius:20px;background-color:rgb(86,198,198);color:rgb(255,255,255);">' . $username . '</a>';
-
-                    if(isset($_SESSION['admin_flag'])){
-                        $admin=$_SESSION['admin_flag'];
-                    }
-                    if($admin==1) {
-
-
-                      echo' 
-                        <div class="dropdown-menu" role = "menu" ><a class="dropdown-item" role = "presentation" href = "#" > Profile<br ></a ><a class="dropdown-item" role = "presentation" href = "../AddGame%20page/updateGame.php" > Update Game </a ><a class="dropdown-item" role = "presentation" href = "#" > Logout</a ></div >
-                  ';
-                  }
-                   ?>
-
-
+                            class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Profile<br></a><a class="dropdown-item" role="presentation" href="#">Update Game</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
                     </li>
                 </ul>
             </div>

@@ -45,7 +45,7 @@ $_SESSION['checkload']=0;
     <script type="text/javascript" src="Script/GameViewJS.js"></script>
     <script src="Script/jquery.min.js"></script>
     <script src="Script/J12.js"></script>
-    <title>V[0.6.2AR35B]</title>
+    <title>Home</title>
 
     <script type="text/javascript">
         function displayProfileMenu(obj) {
@@ -618,123 +618,128 @@ $_SESSION['checkload']=0;
 
 
 
+ function VF() {
 
 
-                $(document).ready(function(){
+     $(document).ready(function () {
 
 
-                    $('.RectangleGameViewIconStyle').click(function () {
+         $('.RectangleGameViewIconStyle').click(function () {
 
-                        var x = this.id;
-                        var y = x.replace('b', '#d');
-                        //alert(2);
-                        if ($(y)) {
-                            //alert(y);
-                            var value = $(y).text();
-                            //alert(value);
-                            $.ajax({
-                                type: 'POST',
-                                url: 'goToGame.php',
-                                data: {value: value},
-                                success: function (data) {
-                                    //alert(data);
-                                    window.location.href = "../GameView[V2]/gameview.php";
-                                }
-                            });
+             var x = this.id;
+             var y = x.replace('b', '#d');
+             //alert(2);
+             if ($(y)) {
+                 //alert(y);
+                 var value = $(y).text();
+                 //alert(value);
+                 $.ajax({
+                     type: 'POST',
+                     url: 'goToGame.php',
+                     data: {value: value},
+                     success: function (data) {
+                         //alert(data);
+                         window.location.href = "../GameView[V2]/gameview.php";
+                     }
+                 });
 
-                            // var x=this.id;
-                            //  alert(x);
-                        }
-                    })
-
-
-                });
-                $(document).ready(function(){
+                 // var x=this.id;
+                 //  alert(x);
+             }
+         })
 
 
-                    $('.RectangleGameViewImageStyle').click(function () {
-
-                        var x=this.id;
-                        var y=x.replace('c','#d');
-                        //alert(3);
-                        if ($(y)) {
-                            //alert(y);
-                            var value = $(y).text();
-                            //alert(value);
-                            $.ajax({
-                                type: 'POST',
-                                url: 'goToGame.php',
-                                data: {value: value},
-                                success: function (data) {
-                                    //alert(data);
-                                    window.location.href = "../GameView[V2]/gameview.php";
-                                }
-                            });
-
-                            //alert(1);
-
-                        //var x=this.id;
-                        //alert(x);
-                    }})
+     });
+     $(document).ready(function () {
 
 
-                });
-                $(document).ready(function(){
+         $('.RectangleGameViewImageStyle').click(function () {
+
+             var x = this.id;
+             var y = x.replace('c', '#d');
+             //alert(3);
+             if ($(y)) {
+                 //alert(y);
+                 var value = $(y).text();
+                 //alert(value);
+                 $.ajax({
+                     type: 'POST',
+                     url: 'goToGame.php',
+                     data: {value: value},
+                     success: function (data) {
+                         //alert(data);
+                         window.location.href = "../GameView[V2]/gameview.php";
+                     }
+                 });
+
+                 //alert(1);
+
+                 //var x=this.id;
+                 //alert(x);
+             }
+         })
 
 
-                    $('.RectangleGameViewNameStyle').click(function () {
-
-                        var x=this.id;
-                        var y=x.replace('d','#d');
-                        //alert(4);
-                        if ($(y)) {
-                            //alert(y);
-                            var value = $(y).text();
-                            //alert(value);
-                            $.ajax({
-                                type: 'POST',
-                                url: 'goToGame.php',
-                                data: {value: value},
-                                success: function (data) {
-                                    //alert(data);
-                                    window.location.href = "../GameView[V2]/gameview.php";
-                                }
-                            });
-
-                      //  var x=this.id;
-                        //alert(x);
-                    }})
+     });
+     $(document).ready(function () {
 
 
-                });
-                $(document).ready(function(){
+         $('.RectangleGameViewNameStyle').click(function () {
+
+             var x = this.id;
+             var y = x.replace('d', '#d');
+             //alert(4);
+             if ($(y)) {
+                 //alert(y);
+                 var value = $(y).text();
+                 //alert(value);
+                 $.ajax({
+                     type: 'POST',
+                     url: 'goToGame.php',
+                     data: {value: value},
+                     success: function (data) {
+                         //alert(data);
+                         window.location.href = "../GameView[V2]/gameview.php";
+                     }
+                 });
+
+                 //  var x=this.id;
+                 //alert(x);
+             }
+         })
 
 
-                    $('.RectangleGameViewDescription').click(function () {
-
-                        var x=this.id;
-                        var y=x.replace('e','#d');
-                       // alert(5);
-                        if ($(y)) {
-                            //alert(y);
-                            var value = $(y).text();
-                            //alert(value);
-                            $.ajax({
-                                type: 'POST',
-                                url: 'goToGame.php',
-                                data: {value: value},
-                                success: function (data) {
-                                    //alert(data);
-                                    window.location.href = "../GameView[V2]/gameview.php";
-                                }
-                            });
-
-                        //var x=this.id;
-                       // alert(x);
-                    }})
+     });
+     $(document).ready(function () {
 
 
-                });
+         $('.RectangleGameViewDescription').click(function () {
+
+             var x = this.id;
+             var y = x.replace('e', '#d');
+             // alert(5);
+             if ($(y)) {
+                 //alert(y);
+                 var value = $(y).text();
+                 //alert(value);
+                 $.ajax({
+                     type: 'POST',
+                     url: 'goToGame.php',
+                     data: {value: value},
+                     success: function (data) {
+                         //alert(data);
+                         window.location.href = "../GameView[V2]/gameview.php";
+                     }
+                 });
+
+                 //var x=this.id;
+                 // alert(x);
+             }
+         })
+
+
+     });
+ }
 
 /*
                 $(document).ready(function(){
@@ -785,7 +790,7 @@ $_SESSION['checkload']=0;
 <div class="MenuBorder Shadow MenuStyle" id="MenuPagePar" style="height: 40px;"  >
 
     <a id="MenuButton" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover" href="#MenuPagePar"  onmouseenter="MenuListShow()" onmouseleave="MenuListShow()"><img src="Image/Icon/menu.png" style="transform: translate(-3px,-2px);"></a>
-    <a href="Home.html" id="HomeButtonMenu" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover" style="width: 80px">Home</a>
+    <a href="Homeold.php" id="HomeButtonMenu" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover" style="width: 80px">Home</a>
 
 
 
@@ -843,20 +848,20 @@ $_SESSION['checkload']=0;
 
         echo '    <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle"  onmouseenter="displayProfileMenu(document.getElementById(\'ProfileMenuButton\'))"
           onmouseleave="NondisplayProfileMenu(document.getElementById(\'ProfileMenuButton\'))" >
-        <a href="Home.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
+        <a href="../Profile%5BV2%5D/index.php"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
         <a href="../login/logout.php" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
     </div>';
 
     }
     else {
-        echo ' <a id="ProfileMenuButton" href="" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle "
+        echo ' <a id="ProfileMenuButton" href="../login/index.html" class="ButtonMenuBorder ButtonMenuStyle ProfileStyle "
        onmouseenter="displayProfileMenu(this)" onload="ResetMenu();ResizeProfileMenu();" onmouseleave="NondisplayProfileMenu(this)" >
-        <img src="Image/Icon/Profile.png"  style="transform: translate(-5px,-2px);">NickName&nbsp;</a>';
+        <img src="Image/Icon/Profile.png"   style="transform: translate(-5px,-2px);">LogIn</a>';
 
         echo '    <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle"  onmouseenter="displayProfileMenu(document.getElementById(\'ProfileMenuButton\'))"
           onmouseleave="NondisplayProfileMenu(document.getElementById(\'ProfileMenuButton\'))" >
-        <a href="login/index.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Log in</a>
-        <a href="login/Register.html" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Register</a>
+        <a href="../login/index.html"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Log in</a>
+        <a href="../login/Register.html" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Register</a>
     </div>';
 
     }
@@ -882,7 +887,7 @@ $_SESSION['checkload']=0;
      onmouseenter="MenuListShow()" onmouseleave="MenuListShow()">
 
 
-    <a href="Home.html" id="HomeButtonMenuList" class="TextSideMenuListBorder TextSideMenuListHover TextSideMenuListStyle  ">Home</a>
+    <a href="Homeold.php" id="HomeButtonMenuList" class="TextSideMenuListBorder TextSideMenuListHover TextSideMenuListStyle  ">Home</a>
 
     <a href="#" class=" TextSideMenuListBorder  TextSideMenuListStyle" style="cursor:unset;">
         Categories<img id="ArrowImageCategories" src="Image/Icon/downarrow.png" style="transform: translate(200%,-2px);cursor:pointer;"

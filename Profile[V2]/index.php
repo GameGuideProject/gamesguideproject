@@ -55,7 +55,7 @@ else $favName=new ArrayObject();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>profile</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
@@ -67,6 +67,64 @@ else $favName=new ArrayObject();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/J12.js"></script>
+
+    <script type="text/javascript">
+
+        function goRemove() {
+
+
+            $(document).ready(function () {
+
+
+                $('.goToGame').click(function () {
+                    var x = this.id;
+                    var y = '#-' + x;
+                    var value = $(y).text();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'goToGame.php',
+                        data: {gotogame: value},
+                        success: function (data) {
+                            //alert(data);
+                            window.location.href = "../GameView[V2]/gameview.php";
+                        }
+                    });
+                })
+            });
+
+            $(document).ready(function () {
+
+
+                $('.remove').click(function () {
+                    var x = this.id;
+                    var z = x;
+                    var y = x.replace('+', '#-');
+
+                    var value = $(y).text();
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'removefav.php',
+                        data: {RemoveFav: value},
+                        success: function (data) {
+
+                            $('#printFav').load("addFav.php");
+
+                        }
+                    });
+
+
+                    //$(y).remove();
+
+                })
+            });
+        }
+    </script>
 
 
 
@@ -77,7 +135,7 @@ else $favName=new ArrayObject();
 <div id="write"></div>
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="height:60px;">
-        <div class="container"><a class="navbar-brand" href="#">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="../Home/Homeold.php">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                  id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -86,13 +144,13 @@ else $favName=new ArrayObject();
                    if ($check==1){
 
                   echo '  <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >'.$usernam.'</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="index.php">Proofile</a><a class="dropdown-item" role="presentation" href="../login/logout.php">Logout</a></div>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="index.php">Profile</a><a class="dropdown-item" role="presentation" href="../login/logout.php">Logout</a></div>
                     </li>';
 
                    }
                    else {
 
-                       echo '  <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="../login/login.php" >Log in</a>
+                       echo '  <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="../login/index.html" >Log in</a>
                    ';
 
                 }
@@ -139,7 +197,7 @@ else $favName=new ArrayObject();
 
                    <?php
 
-                   $email = $_SESSION['email1'];
+                   $email = $_SESSION['email'];
                    $name = $_SESSION['username'];
 
                    $query="SELECT COUNT(*) FROM `generallike` WHERE `personEmail`='$email' AND `likeC`=1";
@@ -161,7 +219,7 @@ else $favName=new ArrayObject();
 
                    <?php
 
-                   $email = $_SESSION['email1'];
+                   $email = $_SESSION['email'];
                    $name = $_SESSION['username'];
 
                    $query="SELECT COUNT(*)  FROM `generallike` WHERE `personEmail`='$email' AND `dislike`=1";
@@ -186,7 +244,7 @@ else $favName=new ArrayObject();
 
 
 
-                   $email = $_SESSION['email1'];
+                   $email = $_SESSION['email'];
                    $name = $_SESSION['username'];
 
                    $query="SELECT COUNT(*) FROM `comment` WHERE `username`='$name'";
@@ -212,7 +270,7 @@ else $favName=new ArrayObject();
 
                         <?php
 
-                        $email = $_SESSION['email1'];
+                        $email = $_SESSION['email'];
                         $name = $_SESSION['username'];
 
                         $query="SELECT COUNT(*) FROM `personfavoritegame` WHERE `personEmail`='$email'";

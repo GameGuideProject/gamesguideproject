@@ -1,9 +1,13 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 session_start();
 include_once "dbh.php";
 
-if(isset($_POST['submit'])) {
+
+
+if(true) {
 
     if (!(empty($_POST['pass']) || empty($_POST['email']))) {
 
@@ -16,7 +20,7 @@ if(isset($_POST['submit'])) {
        $query= "SELECT `Email`, `Password`, `Photo`, `Name`, `Admin Flag`, `User Flag`, `verified` FROM `person` WHERE `Email`= '$email' AND `Password` = '$pass'";
 
 
-     #  echo $query;
+      # echo $query;
       # echo '<br>';
 
         if ($result = mysqli_query($DataBase, $query)) {
@@ -33,11 +37,10 @@ if(isset($_POST['submit'])) {
             $_SESSION['username'] = $username;
             $_SESSION['check'] = 1;
             $_SESSION['email']=$email;
-            $_SESSION['email1']=$email;
-            //echo $_SESSION['email'];
             $_SESSION['password']=$pass;
 
-                header('Location: ../Home/Homeold.php');
+
+                header('Location:../Home/Homeold.php');
 
             exit;
             }
@@ -48,7 +51,7 @@ if(isset($_POST['submit'])) {
     }
     else {
         $_SESSION['pass/email']="true";
-       # header('Location: index.html');
+       #header('Location: index.html');
     }
 }
 

@@ -5,11 +5,11 @@ if (!isset($_SESSION['checkfavRate'])) {
 }
 include_once "../login/dbh.php";
 
-if(isset($_SESSION['email1'])) {
+if(isset($_SESSION['email'])) {
 
     if (isset($_SESSION['name'])) {
 
-        $email = $_SESSION['email1'];
+        $email = $_SESSION['email'];
         $name = $_SESSION['name'];
 
         $query = "SELECT  `Id` FROM `personfavoritegame` WHERE `gamename`='$name' AND `personEmail`='$email'";
@@ -20,7 +20,7 @@ if(isset($_SESSION['email1'])) {
                 $count++;
             }
 
-            if($count>0){
+            if(1){
                 echo ' <img id ="favoriteicon"  class="float-right" src="assets/img/icons8-rating-40.png" data-bs-hover-animate="rubberBand" style="margin-top:15px;cursor:pointer;"></div> ';
 
             }
@@ -32,7 +32,7 @@ if(isset($_SESSION['email1'])) {
 
 
     }
-}
+}else echo "no fav";
 
 
 ?>

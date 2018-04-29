@@ -25,6 +25,7 @@ for ($i=0;$i<$_SESSION['gameSearchNames']->count();$i++) {
     </div>
     <script type="text/javascript">
      Resize(get(\'GameViewSearchSlid\'),get(\'MuneSearch\'),get(\'SearchInput\'));
+     VF();
 </script>
     ';
 

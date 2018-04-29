@@ -164,7 +164,25 @@ if(isset($_SESSION['email1'])) {
     } else echo 'name';
 
 
-} else  echo 'email';
+} else {
+
+    echo '
+    
+     <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">
+                            <div class="col" style="width:100%;padding-right:0px;padding-left:0px;">
+                                <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">
+                                    <div class="col-lg-4" style="width:25%;"></div>
+                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image1()"   style="cursor: pointer" id="Star1"></div>
+                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image2()"   style="cursor: pointer"  id="Star2"></div>
+                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-left:0px;padding-right:0px;"><img src="assets/img/draw.png" onclick="Image3()"   style="cursor: pointer"  id="Star3"></div>
+                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-left:0px;padding-right:0px;"><img src="assets/img/draw.png" onclick="Image4()"   style="cursor: pointer"  id="Star4"></div>
+                                    <div class="col-lg-1" style="width:10%;padding-top:20px;padding-right:0px;padding-left:0px;"><img src="assets/img/draw.png" onclick="Image5()"   style="cursor: pointer"  id="Star5"></div>
+                                    <div class="col-lg-3" style="width:25%;"></div>
+                                </div>
+                            </div>
+                        </div>
+    ';
+}
 
 
 ?>

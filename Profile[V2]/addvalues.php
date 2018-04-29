@@ -5,11 +5,11 @@ if (!isset($_SESSION['checkfavRate'])) {
 }
 include_once "../login/dbh.php";
 
-if(isset($_SESSION['email1'])) {
+if(isset($_SESSION['email'])) {
 
     if (isset($_SESSION['username'])) {
 
-        $email = $_SESSION['email1'];
+        $email = $_SESSION['email'];
         $name = $_SESSION['username'];
 
         $query="SELECT COUNT(*) FROM `generallike` WHERE `personEmail`='$email' AND `likeC`=1";

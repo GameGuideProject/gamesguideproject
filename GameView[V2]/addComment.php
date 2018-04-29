@@ -10,14 +10,14 @@ if (isset($_SESSION['name'])) {
 
     if (isset($_SESSION['username'])) {
 
-        if (isset($_SESSION['email1'])) {
-            $email = $_SESSION['email1'];
+        if (isset($_SESSION['email'])) {
+            $email = $_SESSION['email'];
             $name = $_SESSION['username'];
             $game=$_SESSION['name'];
 
             if (isset($_POST['text1'])) {
 
-                $email = $_SESSION['email1'];
+                $email = $_SESSION['email'];
                 $text = $_POST['text1'];
                 $name = $_SESSION['username'];
                 $game=$_SESSION['name'];
@@ -102,17 +102,19 @@ if (isset($_SESSION['name'])) {
                                                                                                     readonly=""> ' . $text . ' </textarea></div>
                         </div>
                         <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"><label  id="' . "c" . $Id . '" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label 
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;"  id="' . "d" . $Id . '" >' . $dislkes . '</label>
-                            </div>
+                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"> <label  id="' . "c" . $Id . '" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
+                               <label  id="d'. $Id .'" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label>
+                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>';
+        </div>
+        ';
+
                     }
                 }
+              // echo'function LoadTo(a,t){t.src=a.src}$(document).ready(function(){AOS.init({disable:"mobile"}),$("[data-bs-hover-animate]").mouseenter(function(){var a=$(this);a.addClass("animated "+a.attr("data-bs-hover-animate"))}).mouseleave(function(){var a=$(this);a.removeClass("animated "+a.attr("data-bs-hover-animate"))})});';
             }
             //  echo' <div class="row" data-aos="fade-down" style="/*height:260px;*/">
             /*<div class="col" style="background-color:#e0e0e0;height:100%;margin-top:30px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.52), 0 6px 20px 0 rgba(0,0,0,0.35);">

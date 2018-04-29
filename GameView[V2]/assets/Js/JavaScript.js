@@ -170,6 +170,8 @@ $(document).ready(function() {
     })
 });
 
+
+
 function post( ) {
 
     var text= $('#TextArea1').val();
@@ -205,182 +207,185 @@ function post( ) {
 }
 
 
-$(document).ready(function() {
-    $(".like").click(function () {
+/*function () {
 
 
-        var x = this.id;
-        var z = x;
-        var ID = z.replace('a', '');
-        var Dis = z.replace('a', "b");
-        var likes=z.replace('a','#c');
-        var disl=z.replace('a','#d');
-        var flag = 0;
-
-        var like1=$(likes).text();
-        var like2=$(disl).text();
-        var img = document.getElementById(x);
-        var img2 = document.getElementById(Dis);
-
-        if (img.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+    $(document).ready(function () {
+        $(".like").click(function () {
 
 
-            img.src = "assets/img/icons8-heart-40.png";
+            var x = this.id;
+            var z = x;
+            var ID = z.replace('a', '');
+            var Dis = z.replace('a', "b");
+            var likes = z.replace('a', '#c');
+            var disl = z.replace('a', '#d');
+            var flag = 0;
 
-            like1=Number(like1)+1;
+            var like1 = $(likes).text();
+            var like2 = $(disl).text();
+            var img = document.getElementById(x);
+            var img2 = document.getElementById(Dis);
 
-            if (img2.getAttribute('src') === "assets/img/icons8-skull-41.png") {
-                flag = 1;
+            if (img.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+
+
+                img.src = "assets/img/icons8-heart-40.png";
+
+                like1 = Number(like1) + 1;
+
+                if (img2.getAttribute('src') === "assets/img/icons8-skull-41.png") {
+                    flag = 1;
+
+                }
+                else if (img2.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+
+                    img2.src = "assets/img/icons8-skull-41.png";
+                    flag = 2;
+                    like2 = Number(like2) - 1;
+                    if (Number(like2) < 0) {
+                        like2 = 0;
+                    }
+
+                }
+
 
             }
-            else if (img2.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+            else if (img.getAttribute('src') === "assets/img/icons8-heart-40.png") {
 
-                img2.src = "assets/img/icons8-skull-41.png";
-                flag = 2;
-                like2=Number(like2)-1;
-                if (Number(like2)<0){
-                    like2=0;
+                img.src = "assets/img/icons8-heart-41.png";
+                flag = 3;
+                like1 = Number(like1) - 1;
+                if (Number(like1) < 0) {
+                    like1 = 0;
+                }
+
+            }
+
+            $(likes).text(like1);
+            $(disl).text(like2);
+            //alert(like2);
+            //alert(like1);
+            $.ajax({
+                type: 'POST',
+                url: 'addLike.php',
+                data: {likeFlag: flag, ID: ID},
+                success: function (data) {
+                    // $('#commentField').empty();
+                    // alert(data);
+                    // alert(1);
+                    //       alert(data);
+                    //window.location.href = "../GameView[V2]/gameview.php";
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $(".dislike").click(function () {
+
+            var x = this.id;
+            var z = x;
+            var ID = z.replace('b', '');
+            var Dis = z.replace('b', "a");
+            var likes1 = z.replace('a', '#c');
+            var disl1 = z.replace('a', '#d');
+
+            var flag = 0;
+
+            var img = document.getElementById(x);
+            var img2 = document.getElementById(Dis);
+            var like1 = $(likes1).text();
+            var like2 = $(disl1).text();
+            //alert(like2);
+            //alert(like1);
+
+            if (img.getAttribute('src') === "assets/img/icons8-skull-41.png") {
+
+                like2 = Number(like2) + 1;
+                img.src = "assets/img/icons8-skull-40.png";
+
+                if (img2.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+                    flag = 1;
+
+                }
+                else if (img2.getAttribute('src') === "assets/img/icons8-heart-40.png") {
+
+                    img2.src = "assets/img/icons8-heart-41.png";
+                    flag = 2;
+                    like1 = Number(like1) - 1;
+                    if (Number(like1) < 0) {
+                        like1 = 0;
+                    }
+
+                }
+
+
+            }
+            else if (img.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+
+                img.src = "assets/img/icons8-skull-41.png";
+                flag = 3;
+                like2 = Number(like2) - 1;
+                if (Number(like2) < 0) {
+                    like2 = 0;
                 }
 
             }
 
 
-        }
-        else if (img.getAttribute('src') === "assets/img/icons8-heart-40.png") {
+            $(likes1).text(like2);
+            $(disl1).text(like1);
 
-            img.src = "assets/img/icons8-heart-41.png";
-            flag = 3;
-            like1=Number(like1)-1;
-            if (Number(like1)<0){
-                like1=0;
-            }
-
-        }
-
-        $(likes).text(like1);
-        $(disl).text(like2);
-        //alert(like2);
-        //alert(like1);
-        $.ajax({
-            type: 'POST',
-            url: 'addLike.php',
-            data: {likeFlag: flag, ID: ID},
-            success: function (data) {
-                // $('#commentField').empty();
-               // alert(data);
-                // alert(1);
-                //       alert(data);
-                //window.location.href = "../GameView[V2]/gameview.php";
-            }
-        });
-    });
-});
-
-$(document).ready(function(){
-    $(".dislike").click(function(){
-
-        var x=this.id;
-        var z=x;
-        var ID= z.replace('b','');
-        var Dis=z.replace('b',"a");
-        var likes1=z.replace('a','#c');
-        var disl1=z.replace('a','#d');
-
-        var flag=0;
-
-        var img=document.getElementById(x);
-        var img2=document.getElementById(Dis);
-        var like1=$(likes1).text();
-        var like2=$(disl1).text();
-        //alert(like2);
-        //alert(like1);
-
-        if (img.getAttribute('src')==="assets/img/icons8-skull-41.png"){
-
-            like2=Number(like2)+1;
-            img.src="assets/img/icons8-skull-40.png";
-
-            if(img2.getAttribute('src')==="assets/img/icons8-heart-41.png"){
-                flag=1;
-
-            }
-            else if(img2.getAttribute('src')==="assets/img/icons8-heart-40.png"){
-
-                img2.src="assets/img/icons8-heart-41.png";
-                flag=2;
-                like1=Number(like1)-1;
-                if (Number(like1)<0){
-                    like1=0;
+            //alert(flag);
+            $.ajax({
+                type: 'POST',
+                url: 'addDis.php',
+                data: {likeFlag: flag, ID: ID},
+                success: function (data) {
+                    // $('#commentField').empty();
+                    // alert(data);
+                    // alert(1);
+                    //       alert(data);
+                    //window.location.href = "../GameView[V2]/gameview.php";
                 }
-
-            }
-
-
-        }
-        else  if (img.getAttribute('src')==="assets/img/icons8-skull-40.png"){
-
-            img.src="assets/img/icons8-skull-41.png";
-            flag=3;
-            like2=Number(like2)-1;
-            if (Number(like2)<0){
-                like2=0;
-            }
-
-        }
+            });
 
 
-        $(likes1).text(like2);
-        $(disl1).text(like1);
+            /*
+             var img = document.getElementById("favoriteicon");
 
-        //alert(flag);
-        $.ajax({
-            type: 'POST',
-            url: 'addDis.php',
-            data: {likeFlag: flag ,ID:ID},
-            success: function (data) {
-                // $('#commentField').empty();
-               // alert(data);
-                // alert(1);
-                //       alert(data);
-                //window.location.href = "../GameView[V2]/gameview.php";
-            }
+
+             var flag=0;
+             if(img.getAttribute('src')=="assets/img/icons8-rating-41.png"){
+
+             img.src = "assets/img/icons8-rating-40.png";
+             flag=1;
+
+             }
+             else if(img.getAttribute('src')=="assets/img/icons8-rating-40.png"){
+
+             img.src = "assets/img/icons8-rating-41.png";
+             flag=-1;
+
+             }
+
+
+             $( "#write" ).load( "favorite.php" ,{flag : flag}, function(data) {
+             $("#write").html(data);
+             // alert(data);
+             });
+
+
+
+
         });
-
-
-
-
-        /*
-         var img = document.getElementById("favoriteicon");
-
-
-         var flag=0;
-         if(img.getAttribute('src')=="assets/img/icons8-rating-41.png"){
-
-         img.src = "assets/img/icons8-rating-40.png";
-         flag=1;
-
-         }
-         else if(img.getAttribute('src')=="assets/img/icons8-rating-40.png"){
-
-         img.src = "assets/img/icons8-rating-41.png";
-         flag=-1;
-
-         }
-
-
-         $( "#write" ).load( "favorite.php" ,{flag : flag}, function(data) {
-         $("#write").html(data);
-         // alert(data);
-         });
-
-
-         */
-
     });
-});
 
 
-
+}
+*/
 //$(document).ready(function() {
   ///  $('#addcomment').click(function () {
 

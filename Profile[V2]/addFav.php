@@ -36,7 +36,16 @@ if(isset($_SESSION['email1'])) {
                     </div>
                 </div>
             </div>
-            </div>';
+            </div>
+            
+            <script type="text/javascript">
+            
+            goRemove();
+            
+           </script>
+            
+            ';
+
                 $i++;
             }
 
