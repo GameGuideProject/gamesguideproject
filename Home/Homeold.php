@@ -148,7 +148,7 @@ $_SESSION['checkload']=0;
         }
 
 
-
+/*
         $(document).ready(function(){
 
 
@@ -177,7 +177,7 @@ $_SESSION['checkload']=0;
 
 
         });
-
+*/
 
         $(document).ready(function(){
 
@@ -194,8 +194,9 @@ $_SESSION['checkload']=0;
                        data: {gotogame: 1},
                        success: function (data) {
 
+                           //$("#GameViewSearchSlid").empty();
                            $("#GameViewSearchSlid").load("shearchField.php");
-                           Resize(get('GameViewSearchSlid'),get('MuneSearch'),get('SearchInput'));
+                           //Resize(get('GameViewSearchSlid'),get('MuneSearch'),get('SearchInput'));
                            //       alert(data);
                            //window.location.href = "../GameView[V2]/gameview.php";
                        }
@@ -581,34 +582,38 @@ $_SESSION['checkload']=0;
 
 
 
-        /*
+        $(document).ready(function(){
 
 
-         $(document).ready(function(){
+            $('.RectangleGameViewBodyStyle').click(function () {
+
+                var x=this.id;
+                var y=x.replace('a','#d');
+
+                //alert(1);
+                if ($(y)) {
+                    //alert(y);
+                    var value = $(y).text();
+                    //alert(value);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'goToGame.php',
+                        data: {value: value},
+                        success: function (data) {
+                            //alert(data);
+                            window.location.href = "../GameView[V2]/gameview.php";
+                        }
+                    });
+
+                }
+            })
 
 
-         $('#SearchInput').keypress(function (e) {
+        });
 
-         if (e.which()===13){
-         var value= $('#SearchInput').text();
-         alert(value);
 
-         //alert(1);
-         $.ajax({
-         type: 'POST',
-         url: 'latformSearch.php',
-         data: {value: value},
-         success: function (data) {
 
-         $("#GameViewSearchSlid").load("shearchField.php");
-         // alert(1);
-         //       alert(data);
-         //window.location.href = "../GameView[V2]/gameview.php";
-         }
-         });
 
-         })
-         });
 
 
 
@@ -617,9 +622,9 @@ $_SESSION['checkload']=0;
 
                     $('.RectangleGameViewIconStyle').click(function () {
 
-                        var x=this.id;
-                        var y=x.replace('b','#d');
-
+                        var x = this.id;
+                        var y = x.replace('b', '#d');
+                        //alert(2);
                         if ($(y)) {
                             //alert(y);
                             var value = $(y).text();
@@ -634,8 +639,9 @@ $_SESSION['checkload']=0;
                                 }
                             });
 
-                       // var x=this.id;
-                      //  alert(x);
+                            // var x=this.id;
+                            //  alert(x);
+                        }
                     })
 
 
@@ -647,7 +653,7 @@ $_SESSION['checkload']=0;
 
                         var x=this.id;
                         var y=x.replace('c','#d');
-
+                        //alert(3);
                         if ($(y)) {
                             //alert(y);
                             var value = $(y).text();
@@ -666,7 +672,7 @@ $_SESSION['checkload']=0;
 
                         //var x=this.id;
                         //alert(x);
-                    })
+                    }})
 
 
                 });
@@ -677,7 +683,7 @@ $_SESSION['checkload']=0;
 
                         var x=this.id;
                         var y=x.replace('d','#d');
-
+                        //alert(4);
                         if ($(y)) {
                             //alert(y);
                             var value = $(y).text();
@@ -694,7 +700,7 @@ $_SESSION['checkload']=0;
 
                       //  var x=this.id;
                         //alert(x);
-                    })
+                    }})
 
 
                 });
@@ -705,7 +711,7 @@ $_SESSION['checkload']=0;
 
                         var x=this.id;
                         var y=x.replace('e','#d');
-
+                       // alert(5);
                         if ($(y)) {
                             //alert(y);
                             var value = $(y).text();
@@ -722,11 +728,11 @@ $_SESSION['checkload']=0;
 
                         //var x=this.id;
                        // alert(x);
-                    })
+                    }})
 
 
                 });
-
+/*
                 $(document).ready(function(){
 
 
@@ -740,7 +746,7 @@ $_SESSION['checkload']=0;
                             //alert(value);
                             $.ajax({
                                 type: 'POST',
-                                url: 'goToGame.php',
+                                url: 'gToGame.php',
                                 data: {value: value},
                                 success: function (data) {
                                     //alert(data);
@@ -754,9 +760,9 @@ $_SESSION['checkload']=0;
 
 
                 });
+*/
 
 
-        */
     </script>
 
     <style>

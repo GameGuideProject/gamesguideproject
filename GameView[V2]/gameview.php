@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include_once '../login/dbh.php';
 if (isset($_SESSION['check'])){
     $check=$_SESSION['check'];
@@ -55,9 +56,25 @@ $_SESSION['checkfavRate']=0;
             <div class="collapse navbar-collapse"
                  id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="background:rgba(86,198,198,0.21);border-radius:20px;background-color:rgb(86,198,198);color:rgb(255,255,255);">ZaidHabiba</a>
-                        <div
-                            class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Profile<br></a><a class="dropdown-item" role="presentation" href="#">Message Box</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
+                    <?php
+                    $username=$_SESSION['username'];
+
+
+                        echo '<li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="background:rgba(86,198,198,0.21);border-radius:20px;background-color:rgb(86,198,198);color:rgb(255,255,255);">' . $username . '</a>';
+
+                    if(isset($_SESSION['admin_flag'])){
+                        $admin=$_SESSION['admin_flag'];
+                    }
+                    if($admin==1) {
+
+
+                      echo' 
+                        <div class="dropdown-menu" role = "menu" ><a class="dropdown-item" role = "presentation" href = "#" > Profile<br ></a ><a class="dropdown-item" role = "presentation" href = "../AddGame%20page/updateGame.php" > Update Game </a ><a class="dropdown-item" role = "presentation" href = "#" > Logout</a ></div >
+                  ';
+                  }
+                   ?>
+
+
                     </li>
                 </ul>
             </div>

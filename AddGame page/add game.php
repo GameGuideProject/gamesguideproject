@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +30,16 @@
             <div class="collapse navbar-collapse"
                  id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">ZaidHabiba</a>
+
+                 <?php
+              $username=$_SESSION['username'];
+
+                 echo '
+
+                   <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">'.$username.'</a>
+                   ';
+                 ?>
+
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Profile</a><a class="dropdown-item" role="presentation" href="#">Add Game</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
                     </li>
                 </ul>
@@ -41,7 +55,13 @@
                 <div class="col" style="background:rgba(255,255,255,0.24);margin-top:4px;"><label class="col-form-label" style="font-size:28px;padding-bottom:3px;padding-right:0;padding-left:9px;/*background:rgba(247,247,247,0.81);*/text-shadow:2px 2px 8px rgba(53,53,53,0.96);"><img src="assets/img/icons8-about-24.png" data-bs-hover-animate="tada" style="padding-right:9px;padding-bottom:5px;">Game Info</label></div>
             </div>
             <div class="row" style="padding-left:0px;padding-top:26px;padding-bottom:18px;">
+
+
+
                 <div class="col"><label class="col-form-label" style="color:#2c2c2c;text-shadow:1px 1px 4px #414141;">Name</label><input type="text" id="GameName" style="margin-left:97px;height:30px;width:326px;" name="GameName"></div>
+
+
+
             </div>
             <div class="row" style="padding-left:0px;padding-top:26px;padding-bottom:18px;">
                 <div class="col"><label class="col-form-label" style="text-shadow:2px 2px 8px rgba(53,53,53,0.72);">Company Name</label><input type="text" id="CompanyName" name = "CompanyName" style="margin-left:25px;height:30px;width:326px;/*width:100%;*/box-sizing:border-box;border:2px solid #ccc;border-radius:4px;font-size:16px;background-color:white;box-shadow:0 2px 4px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.03);text-shadow:1px 1px 4px rgba(41,41,41,0.2);"></div>
