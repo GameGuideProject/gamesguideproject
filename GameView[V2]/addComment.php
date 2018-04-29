@@ -102,9 +102,9 @@ if (isset($_SESSION['name'])) {
                                                                                                     readonly=""> ' . $text . ' </textarea></div>
                         </div>
                         <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"><label class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                                <label
-                                        class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $dislkes . '</label>
+                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"><label  id="' . "c" . $Id . '" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
+                                <label 
+                                        class="col-form-label" style="margin-left:10px;margin-top:10px;"  id="' . "d" . $Id . '" >' . $dislkes . '</label>
                             </div>
                         </div>
                     </div>

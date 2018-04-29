@@ -12,7 +12,7 @@ for ($i=0;$i<$_SESSION['gameSearchNames']->count();$i++) {
     $name=$_SESSION['gameSearchNames'][$i];
 
     echo '
-<div class ="div">
+<div class ="div1">
     <div class="RectangleGameViewBodyStyle" id="'."a".$i.'" > <div>
             
     <img class="RectangleGameViewIconStyle" src= "data:image/jpeg;base64,'.base64_encode($icon).'" id="'."b".$i.'">
@@ -23,6 +23,9 @@ for ($i=0;$i<$_SESSION['gameSearchNames']->count();$i++) {
         
     <div ><div class="RectangleGameViewDescription" id="'."e".$i.'"><br> '.$des.'</div></div></div>
     </div>
+    <script type="text/javascript">
+     Resize(get(\'GameViewSearchSlid\'),get(\'MuneSearch\'),get(\'SearchInput\'));
+</script>
     ';
 
 };

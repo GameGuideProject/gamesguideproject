@@ -208,12 +208,17 @@ function post( ) {
 $(document).ready(function() {
     $(".like").click(function () {
 
+
         var x = this.id;
         var z = x;
         var ID = z.replace('a', '');
         var Dis = z.replace('a', "b");
+        var likes=z.replace('a','#c');
+        var disl=z.replace('a','#d');
         var flag = 0;
 
+        var like1=$(likes).text();
+        var like2=$(disl).text();
         var img = document.getElementById(x);
         var img2 = document.getElementById(Dis);
 
@@ -221,6 +226,8 @@ $(document).ready(function() {
 
 
             img.src = "assets/img/icons8-heart-40.png";
+
+            like1=Number(like1)+1;
 
             if (img2.getAttribute('src') === "assets/img/icons8-skull-41.png") {
                 flag = 1;
@@ -230,6 +237,10 @@ $(document).ready(function() {
 
                 img2.src = "assets/img/icons8-skull-41.png";
                 flag = 2;
+                like2=Number(like2)-1;
+                if (Number(like2)<0){
+                    like2=0;
+                }
 
             }
 
@@ -239,9 +250,17 @@ $(document).ready(function() {
 
             img.src = "assets/img/icons8-heart-41.png";
             flag = 3;
+            like1=Number(like1)-1;
+            if (Number(like1)<0){
+                like1=0;
+            }
 
         }
 
+        $(likes).text(like1);
+        $(disl).text(like2);
+        //alert(like2);
+        //alert(like1);
         $.ajax({
             type: 'POST',
             url: 'addLike.php',
@@ -264,14 +283,21 @@ $(document).ready(function(){
         var z=x;
         var ID= z.replace('b','');
         var Dis=z.replace('b',"a");
+        var likes1=z.replace('a','#c');
+        var disl1=z.replace('a','#d');
+
         var flag=0;
 
         var img=document.getElementById(x);
         var img2=document.getElementById(Dis);
+        var like1=$(likes1).text();
+        var like2=$(disl1).text();
+        //alert(like2);
+        //alert(like1);
 
         if (img.getAttribute('src')==="assets/img/icons8-skull-41.png"){
 
-
+            like2=Number(like2)+1;
             img.src="assets/img/icons8-skull-40.png";
 
             if(img2.getAttribute('src')==="assets/img/icons8-heart-41.png"){
@@ -282,6 +308,10 @@ $(document).ready(function(){
 
                 img2.src="assets/img/icons8-heart-41.png";
                 flag=2;
+                like1=Number(like1)-1;
+                if (Number(like1)<0){
+                    like1=0;
+                }
 
             }
 
@@ -291,9 +321,18 @@ $(document).ready(function(){
 
             img.src="assets/img/icons8-skull-41.png";
             flag=3;
+            like2=Number(like2)-1;
+            if (Number(like2)<0){
+                like2=0;
+            }
 
         }
-        alert(flag);
+
+
+        $(likes1).text(like2);
+        $(disl1).text(like1);
+
+        //alert(flag);
         $.ajax({
             type: 'POST',
             url: 'addDis.php',

@@ -24,7 +24,7 @@ if(isset($_SESSION['email1'])) {
 
                 $rate=$row['rate'];
                 $count++;
-               // print_r($rate);
+                print_r($rate);
             }
 
 
@@ -33,7 +33,7 @@ if(isset($_SESSION['email1'])) {
 
                 if($rate==0){
 
-                   echo '
+                    echo '
                     <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">
                             <div class="col" style="width:100%;padding-right:0px;padding-left:0px;">
                                 <div class="row" style="width:100%;margin-left:0px;margin-right:0px;">

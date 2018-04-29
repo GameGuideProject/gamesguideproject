@@ -557,15 +557,18 @@ $_SESSION['checkload']=0;
             $('#SearchInput').keypress(function (e) {
 
                 if (e.which===13){
+
                     var value= $('#SearchInput').val();
 
 
+                    //alert(value);
                     //alert(1);
                     $.ajax({
                         type: 'POST',
                         url: 'NameSearch.php',
                         data: {value: value},
                         success: function (data) {
+
 
                             $("#GameViewSearchSlid").load("shearchField.php");
                             // alert(1);
@@ -732,14 +735,15 @@ $_SESSION['checkload']=0;
 
 
                 });
+
 /*
                 $(document).ready(function(){
 
 
-                    $('.div').click(function () {
+                    $('.div1').click(function () {
                         var x=this.id;
                         var y=x.replace('a','#d');
-
+               alert(1);
                         if ($(y)) {
                             //alert(y);
                             var value = $(y).text();
@@ -756,7 +760,7 @@ $_SESSION['checkload']=0;
 
                        // var x=this.id;
                        // alert(x);
-                    })
+                    }})
 
 
                 });
@@ -771,7 +775,7 @@ $_SESSION['checkload']=0;
     </style>
 
 </head>
-<body style="min-width: 500px; margin: auto auto;"  onresize=" ResetMenu();ResizeProfileMenu();
+<body  style="min-width: 500px; margin: auto auto; "  onresize=" ResetMenu();ResizeProfileMenu();
         Resize(get('GameViewSearchSlid'),get('MuneSearch'),get('SearchInput'));"
         onload="Build();SetCategoriesMenu();SetPlatformMenu();SetProfileMenu();LoadGames(get('GameViewSearchSlid')); ResetMenu();Resize(get('GameViewSearchSlid'),get('MuneSearch'),get('SearchInput'));ResizeProfileMenu();"
       >
