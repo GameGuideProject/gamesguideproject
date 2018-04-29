@@ -4,11 +4,11 @@ if (!isset($_SESSION['checkfavRate'])) {
 }
 include_once "../login/dbh.php";
 
-if(isset($_SESSION['email1'])) {
+if(isset($_SESSION['email'])) {
 
     if (isset($_SESSION['name'])) {
 
-        $email = $_SESSION['email1'];
+        $email = $_SESSION['email'];
         $name = $_SESSION['name'];
 
         $query="SELECT `Id`, `gamename` FROM `personfavoritegame` WHERE `personEmail` ='$email'";

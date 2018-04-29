@@ -48,6 +48,8 @@ $_SESSION['checkfavRate']=0;
     <script type="text/javascript">
 
 
+        function VF() {
+
 
             $(document).ready(function () {
                 $(".like").click(function () {
@@ -58,11 +60,17 @@ $_SESSION['checkfavRate']=0;
                     var ID = z.replace('a', '');
                     var Dis = z.replace('a', "b");
                     var likes = z.replace('a', '#c');
-                    var disl = z.replace('a', '#d');
+                    var disl = z.replace('a', 'e');
+                   // alert(x);
+                    //alert(disl);
                     var flag = 0;
 
+
+
                     var like1 = $(likes).text();
-                    var like2 = $(disl).text();
+                    var like2 = $('#'+disl).text();
+                   // alert(like1);
+                    //alert(like2);
                     var img = document.getElementById(x);
                     var img2 = document.getElementById(Dis);
 
@@ -102,7 +110,7 @@ $_SESSION['checkfavRate']=0;
                     }
 
                     $(likes).text(like1);
-                    $(disl).text(like2);
+                    $('#'+disl).text(like2);
                     //alert(like2);
                     //alert(like1);
                     $.ajax({
@@ -128,32 +136,36 @@ $_SESSION['checkfavRate']=0;
                     var z = x;
                     var ID = z.replace('b', '');
                     var Dis = z.replace('b', "a");
-                    var likes1 = z.replace('a', '#c');
-                    var disl1 = z.replace('a', '#d');
+                    var likes1 = z.replace('b', '#c');
+                    var disl = z.replace('b', '#e');
 
                     var flag = 0;
 
-                    var img = document.getElementById(x);
-                    var img2 = document.getElementById(Dis);
+                    var img = document.getElementById(Dis);
+                    var img2 = document.getElementById(x);
                     var like1 = $(likes1).text();
-                    var like2 = $(disl1).text();
+                    var like2 = $(disl).text();
+
+
+                    //var like2 = $('#'+disl1).text();
                     //alert(like2);
                     //alert(like1);
 
-                    if (img.getAttribute('src') === "assets/img/icons8-skull-41.png") {
+                    if (img2.getAttribute('src') === "assets/img/icons8-skull-41.png") {
 
                         like2 = Number(like2) + 1;
-                        img.src = "assets/img/icons8-skull-40.png";
+                        img2.src = "assets/img/icons8-skull-40.png";
 
-                        if (img2.getAttribute('src') === "assets/img/icons8-heart-41.png") {
+                        if (img.getAttribute('src') === "assets/img/icons8-heart-41.png") {
                             flag = 1;
 
                         }
-                        else if (img2.getAttribute('src') === "assets/img/icons8-heart-40.png") {
+                        else if (img.getAttribute('src') === "assets/img/icons8-heart-40.png") {
 
-                            img2.src = "assets/img/icons8-heart-41.png";
+                            img.src = "assets/img/icons8-heart-41.png";
                             flag = 2;
                             like1 = Number(like1) - 1;
+                            //alert(like1);
                             if (Number(like1) < 0) {
                                 like1 = 0;
                             }
@@ -162,9 +174,9 @@ $_SESSION['checkfavRate']=0;
 
 
                     }
-                    else if (img.getAttribute('src') === "assets/img/icons8-skull-40.png") {
+                    else if (img2.getAttribute('src') === "assets/img/icons8-skull-40.png") {
 
-                        img.src = "assets/img/icons8-skull-41.png";
+                        img2.src = "assets/img/icons8-skull-41.png";
                         flag = 3;
                         like2 = Number(like2) - 1;
                         if (Number(like2) < 0) {
@@ -174,8 +186,8 @@ $_SESSION['checkfavRate']=0;
                     }
 
 
-                    $(likes1).text(like2);
-                    $(disl1).text(like1);
+                    $(likes1).text(like1);
+                    $(disl).text(like2);
 
                     //alert(flag);
                     $.ajax({
@@ -192,11 +204,10 @@ $_SESSION['checkfavRate']=0;
                     });
 
 
-
                 });
             });
 
-
+        }
 
 
 
@@ -212,17 +223,45 @@ $_SESSION['checkfavRate']=0;
 <div id="write" ></div>
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="height:58px;">
-        <div class="container"><a class="navbar-brand" href="#">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
+        <div class="container"><a class="navbar-brand" href="../Home/Homeold.php">Home</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <?php
+
+            if (isset($_SESSION['username'])){
+                echo' <div class="collapse navbar-collapse"
                  id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <?php
-                    $username=$_SESSION['username'];
+                
+                <ul class="nav navbar-nav ml-auto">';
+
+                    //$username=$_SESSION['username'];
                     echo '<li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="background:rgba(86,198,198,0.21);border-radius:20px;background-color:rgb(86,198,198);color:rgb(255,255,255);">'.$username.'</a>';
                     ?>
-                        <div
+                    <div class="dropdown-menu" role="menu">
+                    <?php
+                   if (isset($_SESSION['username'])){
+                     echo '  <a class="dropdown-item" role="presentation" href="../Profile%5BV2%5D/index.php">Profile<br> </a>';
 
-                            class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Profile<br></a><a class="dropdown-item" role="presentation" href="#">Update Game</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
+                 if (isset($_SESSION['admin_flag'])) {
+                     echo '<a class="dropdown-item" role = "presentation" href = "#" > Update Game </a >';
+                   }
+                   if (isset($_SESSION['username'])){
+                     echo' <a class="dropdown-item" role = "presentation" href = "../login/logout.php" > Logout</a >';
+
+                   }
+                   }
+
+               }
+
+               else {
+                echo' <div class="collapse navbar-collapse"
+                 id="navcol-1">
+                
+                <ul class="nav navbar-nav ml-auto"> ';
+                   echo' <a class="dropdown-item" role = "presentation" href = "../login/index.html" > Log In</a >';
+                   echo '</div >';
+               }
+
+                   ?>
+
                     </li>
                 </ul>
             </div>
@@ -259,15 +298,11 @@ $_SESSION['checkfavRate']=0;
         <?php
 
         $icon=$_SESSION['icon'];
-        echo '<div class="col" style="background-color:rgba(179,179,179,0.47);box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0,0,0,0.32);"><label class="col-form-label" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="data:image/jpeg;base64,'.base64_encode($icon).'" data-bs-hover-animate="bounce" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">Super Mario Maker</label>
+        echo '<div class="col" style="background-color:rgba(179,179,179,0.47);box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0,0,0,0.32);"><label class="col-form-label" style="font-size:34px;text-shadow:2px 2px 8px rgba(53,53,53,0.96);padding-left:9px;"><img src="data:image/jpeg;base64,'.base64_encode($icon).'" data-bs-hover-animate="bounce" style="padding-top:0px;padding-left:0px;padding-bottom:5px;padding-right:20px;">'.$_SESSION['name'].'</label>
     '    ?>
 
         <?php
-
-
         include "favRate.php"
-
-
 
 
   ?>

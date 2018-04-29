@@ -71,8 +71,8 @@ if (isset($_SESSION['name'])) {
                         $flag1=$row3['likeC'];
                         $flag2=$row3['dislike'];
 
-                        $img1="";
-                        $img2="";
+                        $img1="assets/img/icons8-heart-41.png";
+                        $img2="assets/img/icons8-skull-41.png";
 
 
                         if ($flag1==1){
@@ -102,8 +102,11 @@ if (isset($_SESSION['name'])) {
                                                                                                     readonly=""> ' . $text . ' </textarea></div>
                         </div>
                         <div class="row" style="height:64px;margin-right:0px;margin-bottom:0px;">
-                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;"><img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"> <label  id="' . "c" . $Id . '" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label><img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
-                               <label  id="d'. $Id .'" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label>
+                            <div class="col-lg-12" style="padding-right:0px;height:60px;margin-top:5px;">
+                            <img class="like" id="' . "a" . $Id . '" src="'.$img1.'" data-bs-hover-animate="tada" style="cursor:pointer;"> 
+                            <label  id="' . "c" . $Id . '" class="col-form-label" style="margin-left:10px;margin-top:10px;">' . $likes . '</label>
+                            <img id="' . "b" . $Id . '" class="dislike" src="'.$img2.'" data-bs-hover-animate="tada" style="margin-left:30px;cursor:pointer;">
+                            <label  id="e'.$Id.'" class="col-form-label" style="margin-left:10px;margin-top:10px;">'.$dislkes.'</label>
                              </div>
                         </div>
                     </div>
@@ -114,6 +117,14 @@ if (isset($_SESSION['name'])) {
 
                     }
                 }
+
+                echo '
+                
+                <script type="text/javascript">
+                VF();
+               </script>
+                <script src="assets/Js/script.min.js"></script> 
+                ';
               // echo'function LoadTo(a,t){t.src=a.src}$(document).ready(function(){AOS.init({disable:"mobile"}),$("[data-bs-hover-animate]").mouseenter(function(){var a=$(this);a.addClass("animated "+a.attr("data-bs-hover-animate"))}).mouseleave(function(){var a=$(this);a.removeClass("animated "+a.attr("data-bs-hover-animate"))})});';
             }
             //  echo' <div class="row" data-aos="fade-down" style="/*height:260px;*/">
@@ -143,8 +154,9 @@ if (isset($_SESSION['name'])) {
             //  echo"comment added";
 
 
-        } else echo "no user name";
-    } else echo "game not here";
+        } //else echo "no user name";
+    } //else echo "game not here";
 }
+echo "<br>";
 ?>
 

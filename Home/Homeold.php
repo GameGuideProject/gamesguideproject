@@ -395,7 +395,7 @@ $_SESSION['checkload']=0;
 
                         $("#GameViewSearchSlid").load("shearchField.php");
                         // alert(1);
-                              alert(data);
+                            //  alert(data);
                         //window.location.href = "../GameView[V2]/gameview.php";
                     }
                 });
@@ -585,34 +585,6 @@ $_SESSION['checkload']=0;
 
 
 
-        $(document).ready(function(){
-
-
-            $('.RectangleGameViewBodyStyle').click(function () {
-
-                var x=this.id;
-                var y=x.replace('a','#d');
-
-                //alert(1);
-                if ($(y)) {
-                    //alert(y);
-                    var value = $(y).text();
-                    //alert(value);
-                    $.ajax({
-                        type: 'POST',
-                        url: 'goToGame.php',
-                        data: {value: value},
-                        success: function (data) {
-                            //alert(data);
-                            window.location.href = "../GameView[V2]/gameview.php";
-                        }
-                    });
-
-                }
-            })
-
-
-        });
 
 
 
@@ -620,6 +592,34 @@ $_SESSION['checkload']=0;
 
  function VF() {
 
+     $(document).ready(function(){
+
+
+         $('.RectangleGameViewBodyStyle').click(function () {
+
+             var x=this.id;
+             var y=x.replace('a','#d');
+
+             //alert(1);
+             if ($(y)) {
+                 //alert(y);
+                 var value = $(y).text();
+                 //alert(value);
+                 $.ajax({
+                     type: 'POST',
+                     url: 'goToGame.php',
+                     data: {value: value , check:1},
+                     success: function (data) {
+                         //alert(data);
+                         window.location.href = "../GameView[V2]/gameview.php";
+                     }
+                 });
+
+             }
+         })
+
+
+     });
 
      $(document).ready(function () {
 
@@ -636,7 +636,7 @@ $_SESSION['checkload']=0;
                  $.ajax({
                      type: 'POST',
                      url: 'goToGame.php',
-                     data: {value: value},
+                     data: {value: value ,check:1},
                      success: function (data) {
                          //alert(data);
                          window.location.href = "../GameView[V2]/gameview.php";
@@ -665,7 +665,7 @@ $_SESSION['checkload']=0;
                  $.ajax({
                      type: 'POST',
                      url: 'goToGame.php',
-                     data: {value: value},
+                     data: {value: value ,check:0},
                      success: function (data) {
                          //alert(data);
                          window.location.href = "../GameView[V2]/gameview.php";
@@ -696,7 +696,7 @@ $_SESSION['checkload']=0;
                  $.ajax({
                      type: 'POST',
                      url: 'goToGame.php',
-                     data: {value: value},
+                     data: {value: value ,check:1},
                      success: function (data) {
                          //alert(data);
                          window.location.href = "../GameView[V2]/gameview.php";
@@ -725,7 +725,7 @@ $_SESSION['checkload']=0;
                  $.ajax({
                      type: 'POST',
                      url: 'goToGame.php',
-                     data: {value: value},
+                     data: {value: value , check:1},
                      success: function (data) {
                          //alert(data);
                          window.location.href = "../GameView[V2]/gameview.php";
@@ -834,7 +834,7 @@ $_SESSION['checkload']=0;
 
 
 
-    <a id="MessageBox" href="#" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover w3-hide-small" style="text-align-all: right;width: 50px"><img id="MessageBoxIcon" src="Image/Icon/Box.png"></a>
+    <a id="MessageBox" href="#" class="ButtonMenuBorder ButtonMenuStyle ButtonMenuHover w3-hide-small" style=" display: none text-align-all: right;width: 50px"><img id="MessageBoxIcon" src="Image/Icon/Box.png" style="display: none"></a>
 
 
     <?php
@@ -847,9 +847,17 @@ $_SESSION['checkload']=0;
         echo'</a>';
 
         echo '    <div  id="ProfileMenu" class="MenuItemBorder Shadow MenuItemStyle"  onmouseenter="displayProfileMenu(document.getElementById(\'ProfileMenuButton\'))"
-          onmouseleave="NondisplayProfileMenu(document.getElementById(\'ProfileMenuButton\'))" >
-        <a href="../Profile%5BV2%5D/index.php"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Edit Profile</a>
-        <a href="../login/logout.php" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
+          onmouseleave="NondisplayProfileMenu(document.getElementById(\'ProfileMenuButton\'))" > 
+          <a href = "../Profile%5BV2%5D/index.php"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle" > Edit Profile </a >
+          ';
+
+        if(isset($_SESSION['admin_flag'])) {
+
+            echo '<a href = "../AddGame%20page/add%20game.php"  class="ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle" >ADD Game</a >
+        ';
+        }
+
+    echo'    <a href="../login/logout.php" class=" ButtonMenuItemBorder ButtonMenuItemHoverStyle ButtonMenuItemStyle">Logout</a>
     </div>';
 
     }
@@ -1019,7 +1027,7 @@ $_SESSION['checkload']=0;
 
 <div  id="GameViewSearchSlid" class="SuperBodyGameView"  style="height: 100%">
 
-
+    <a name="Search"></a >
 
 <?php
 
@@ -1031,7 +1039,7 @@ include "shearchField.php";
 
 </br>
 </br>
-<a name="Search"></a >
+
 </body>
 </html>
 

@@ -1,2 +1,0 @@
-# gamesguideproject
-software/web project

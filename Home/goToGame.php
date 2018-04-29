@@ -50,6 +50,21 @@ if (isset( $_POST['value']))
 
        $_SESSION['image1']=$gamesrows['BackGround'];
        $_SESSION['icon']=$gamesrows['Icon'];
+
+       $views= $_SESSION['views']+1;
+       $_SESSION['views']=$views;
+       $game= $_SESSION['name'];
+
+       if (isset($_POST['check'])) {
+
+           if ($_POST['check']==0) {
+               $_POST['check']=2;
+               $query6 = "UPDATE `game` SET `numberofViews`='$views' WHERE `name`='$game'";
+
+               if (mysqli_query($DataBase, $query6)) {
+               }
+           }
+       }
       // echo '<img src="data:image/jpeg;base64,' .base64_encode($_SESSION['image1']).'" >';
 
        //$_SESSION['video']=$video;
@@ -116,6 +131,7 @@ if (isset( $_POST['value']))
                        if ($videourl=mysqli_query($DataBase,$query5)){
 
                            $videourls=mysqli_fetch_assoc($games);
+
                            $_SESSION['video']=$videourls['videoUrl'];
 
 

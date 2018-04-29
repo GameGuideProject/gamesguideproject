@@ -20,7 +20,7 @@ if(isset($_SESSION['email'])) {
                 $count++;
             }
 
-            if(1){
+            if($count>1){
                 echo ' <img id ="favoriteicon"  class="float-right" src="assets/img/icons8-rating-40.png" data-bs-hover-animate="rubberBand" style="margin-top:15px;cursor:pointer;"></div> ';
 
             }
@@ -32,7 +32,12 @@ if(isset($_SESSION['email'])) {
 
 
     }
-}else echo "no fav";
+}else {
+
+    echo ' <img  class="float-right" src="assets/img/icons8-rating-40.png" data-bs-hover-animate="rubberBand" style="margin-top:15px;cursor:pointer;"></div> ';
+
+
+}
 
 
 ?>
